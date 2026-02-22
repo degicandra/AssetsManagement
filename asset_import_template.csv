@@ -1,0 +1,14 @@
+Company;Asset Code;Serial Number;Model;Brand;Type;Status;Location;Department;Person In Charge;Purchase Date (YYYY-MM-DD);Warranty Expiration (YYYY-MM-DD);Processor;Storage Type;Storage Size;RAM;Specification Upgraded (0/1);Notes;Is Active (yes/no)
+RSIA Bunda Jakarta;-;-;Lenovo core i3 gen10;Lenovo;All in One PC;active;Poli Demam;Medical Department;NUNING YULIANINGSIH;22/02/2021;22/02/2021;Intel Core i3 gen10;SSD;120GB;8GB;0;Poli Demam 1;yes
+RSIA Bunda Jakarta;-;-;All In One Lenovo Core i5 gen 12;Lenovo;All in One PC;active;Poli Demam;Medical Department;NUNING YULIANINGSIH;23/02/2024;23/02/2024;Intel Core i5 gen 12;SSD;512GB;8GB;0;Poli Demam 2;yes
+RSIA Bunda Jakarta;-;-;All In One Lenovo Core i5 gen 12;Lenovo;All in One PC;active;Poli Demam;Nursing Department;NUNING YULIANINGSIH;24/02/2024;24/02/2024;Intel Core i5 gen 12;SSD;512GB;8GB;0;Nurse Station;yes
+RSIA Bunda Jakarta;-;-;Lenovo core i3 gen9;Lenovo;PC Desktop;active;Kamar Bersalin;Nursing Department;ETHA;24/11/2025;24/11/2026;Intel Core i3 gen9;SSD;240GB;4GB;0;Kamar Bersalin 1;yes
+RSIA Bunda Jakarta;-;-;All In One Lenovo Core i5 gen 12;Lenovo;All in One PC;active;Kamar Bersalin;Nursing Department;ETHA;24/11/2025;24/11/2026;Intel Core i5 gen 12;SSD;512GB;8GB;0;Kamar Bersalin 2;yes
+RSIA Bunda Jakarta;-;-;Lenovo core i3 gen9;Lenovo;PC Desktop;active;Operating Theater;Nursing Department;N. SUMARNI;15/10/2020;15/10/2021;Intel Core i3 gen9;SSD;120GB;4GB;0;OK Nurse;yes
+RSIA Bunda Jakarta;-;-;Lenovo AIO core i3 gen10;Lenovo;All in One PC;active;Operating Theater;Nursing Department;N. SUMARNI;15/10/2020;15/10/2021;Intel Core i3 gen10;SSD;512GB;4GB;0;OK Admin;yes
+RSIA Bunda Jakarta;-;-;Lenovo AIO core i3 gen10;Lenovo;All in One PC;active;Operating Theater;Medical Department;N. SUMARNI;15/10/2020;15/10/2021;Intel Core i3 gen10;SSD;512GB;4GB;0;OK Dokter;yes
+RSIA Bunda Jakarta;-;-;Rakitan core i3 gen3;Simbada;PC Desktop;active;Operating Theater;Nursing Department;N. SUMARNI;24/11/2015;24/11/2016;Intel core i3 gen3;HDD;512GB;4GB;0;OK Sebelah Admin;yes
+RSIA Bunda Jakarta;-;-;Intel Nuc celeron;Intel;Mini PC;active;Operating Theater;Nursing Department;N. SUMARNI;13/09/2022;13/09/2023;Intel Nuc celeron;HDD;120GB;4GB;0;Plasma OK 1;yes
+RSIA Bunda Jakarta;-;-;Intel Nuc celeron;Intel;Mini PC;active;Operating Theater;Nursing Department;N. SUMARNI;13/09/2022;13/09/2023;Intel Nuc celeron;HDD;120GB;4GB;0;Plasma OK 2;yes
+RSIA Bunda Jakarta;-;-;Intel Nuc celeron;Intel;Mini PC;active;Operating Theater;Nursing Department;N. SUMARNI;13/09/2022;13/09/2023;Intel Nuc celeron;HDD;120GB;4GB;0;Plasma OK 3;yes
+RSIA Bunda Jakarta;-;-;Intel Nuc celeron;Intel;Mini PC;active;Operating Theater;Nursing Department;N. SUMARNI;13/09/2022;13/09/2023;Intel Nuc celeron;HDD;120GB;4GB;0;Plasma OK 4;yes

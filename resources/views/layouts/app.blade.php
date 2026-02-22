@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ session('theme', 'light') === 'dark' ? 'dark' : '' }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Assets Management') }}</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        :root {
+            --primary-color: #10B981;
+            --primary-dark: #059669;
+            --secondary-color: #F3F4F6;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+        }
+        
+        .dark {
+            --primary-color: #10B981;
+            --primary-dark: #059669;
+            --secondary-color: #111827;
+            --text-dark: #FFFFFF;
+            --text-light: #E5E7EB;
+        }
+        
+        .sidebar-transition {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        /* Dark mode select option styling */
+        select.dark\\:bg-gray-800,
+        select.dark\\:text-white,
+        textarea.dark\\:text-white {
+            color-scheme: dark;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            select,
+            textarea,
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="date"],
+            input[type="number"] {
+                color-scheme: dark;
+            }
+        }
+        
+        /* Ensure text is visible in dark mode select options */
+        html.dark select option {
+            background-color: #1f2937;
+            color: #ffffff;
+        }
+        
+        select option:checked {
+            background-color: #10B981;
+            color: #ffffff;
+        }
+        
+        /* Input field text visibility in dark mode */
+        html.dark input[type="text"],
+        html.dark input[type="email"],
+        html.dark input[type="password"],
+        html.dark input[type="date"],
+        html.dark input[type="number"],
+        html.dark textarea {
+            color: #ffffff !important;
+            background-color: #1f2937 !important;
+        }
+
+        /* Input placeholder styling in dark mode */
+        html.dark input[type="text"]::placeholder,
+        html.dark input[type="email"]::placeholder,
+        html.dark input[type="password"]::placeholder,
+        html.dark input[type="date"]::placeholder,
+        html.dark input[type="number"]::placeholder,
+        html.dark textarea::placeholder {
+            color: #9ca3af !important;
+        }
+        
+        /* Autofill styling for dark mode */
+        html.dark input:-webkit-autofill,
+        html.dark input:-webkit-autofill:hover,
+        html.dark input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 1000px #1f2937 inset !important;
+            -webkit-text-fill-color: #ffffff !important;
+        }
+        
+        /* Focus state for inputs in dark mode */
+        html.dark input:focus,
+        html.dark textarea:focus {
+            color: #ffffff !important;
+        }
+        
+        /* Select dropdown styling for dark mode */
+        html.dark select {
+            color: #ffffff !important;
+            background-color: #1f2937 !important;
+            color-scheme: dark;
+        }
+        
+        html.dark select option {
+            background-color: #2d3748 !important;
+            color: #ffffff !important;
+        }
+        
+        html.dark select option:hover {
+            background-color: #4a5568 !important;
+            color: #ffffff !important;
+        }
+        
+        html.dark select option:checked {
+            background: linear-gradient(#10B981, #10B981) !important;
+            background-color: #10B981 !important;
+            color: #ffffff !important;
+        }
+        
+        /* Table header and cell text visibility in dark mode */
+        html.dark th {
+            color: #ffffff !important;
+        }
+        
+        html.dark td {
+            color: #ffffff !important;
+        }
+        
+        html.dark table .text-gray-900 {
+            color: #ffffff !important;
+        }
+        
+        html.dark table .dark\:text-gray-200 {
+            color: #ffffff !important;
+        }
+        
+        html.dark table .dark\:text-gray-300 {
+            color: #ffffff !important;
+        }
+        
+        /* Ensure section backgrounds toggle properly in dark mode */
+        .bg-gray-50 {
+            background-color: #f9fafb;
+            transition: background-color 0.3s ease-in-out;
+        }
+        
+        html.dark .dark\:bg-gray-900,
+        html.dark .bg-gray-50 {
+            background-color: #111827 !important;
+            transition: background-color 0.3s ease-in-out;
+        }
+        
+        /* Ensure proper text colors in dark mode for labels and headings */
+        html.dark label,
+        html.dark dt,
+        html.dark label.block,
+        html.dark label.text-gray-700 {
+            color: #f3f4f6 !important;
+        }
+        
+        html.dark h2,
+        html.dark h3 {
+            color: #ffffff !important;
+        }
+        
+        /* Ensure all text elements toggle properly in dark mode */
+        html.dark h1 {
+            color: #ffffff !important;
+        }
+        
+        html.dark .dark\:text-gray-200,
+        html.dark .dark\:text-white,
+        html.dark .dark\:text-gray-100 {
+            color: #ffffff !important;
+        }
+        
+        html.dark dd,
+        html.dark .text-gray-900 {
+            color: #ffffff !important;
+        }
+        
+        html.dark .text-gray-700 {
+            color: #f3f4f6 !important;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-50 dark:bg-gray-900 min-h-screen">
+    <div class="min-h-screen">
+        <!-- Page Content -->
+        <main>
+            @yield('content')
+        </main>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="fixed top-4 right-4 z-50">
+        <button onclick="toggleDarkMode()" title="Toggle dark mode" class="p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <svg id="sun-icon" class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.536l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm5.657-9.193a1 1 0 00-1.414 0l-.707.707A1 1 0 005.05 6.464l.707-.707a1 1 0 011.414 0zM5 11a1 1 0 100-2H4a1 1 0 100 2h1z" clip-rule="evenodd"></path>
+            </svg>
+            <svg id="moon-icon" class="h-5 w-5 text-indigo-400 hidden" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Notification System -->
+    @if(session('success'))
+        <div id="notification-success" class="fixed top-20 right-4 z-50 bg-green-500 dark:bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div id="notification-error" class="fixed top-20 right-4 z-50 bg-red-500 dark:bg-red-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+            {{ session('error') }}
+        </div>
+    @endif
+
+    <script>
+        // Initialize dark mode from localStorage or system preference
+        function initializeDarkMode() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const isDark = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
+            
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                updateDarkModeIcons(true);
+            } else {
+                document.documentElement.classList.remove('dark');
+                updateDarkModeIcons(false);
+            }
+        }
+
+        // Update dark mode icons
+        function updateDarkModeIcons(isDark) {
+            const sunIcon = document.getElementById('sun-icon');
+            const moonIcon = document.getElementById('moon-icon');
+            
+            if (sunIcon && moonIcon) {
+                if (isDark) {
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                } else {
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                }
+            }
+        }
+
+        // Dark mode toggle
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const isDark = html.classList.contains('dark');
+            
+            if (isDark) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                updateDarkModeIcons(false);
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                updateDarkModeIcons(true);
+            }
+        }
+
+        // Auto-hide notifications
+        setTimeout(() => {
+            const successNotification = document.getElementById('notification-success');
+            const errorNotification = document.getElementById('notification-error');
+            
+            if (successNotification) {
+                successNotification.style.opacity = '0';
+                successNotification.style.transition = 'opacity 0.3s ease-in-out';
+                setTimeout(() => successNotification.remove(), 300);
+            }
+            
+            if (errorNotification) {
+                errorNotification.style.opacity = '0';
+                errorNotification.style.transition = 'opacity 0.3s ease-in-out';
+                setTimeout(() => errorNotification.remove(), 300);
+            }
+        }, 5000);
+
+        // Initialize dark mode on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDarkMode();
+        });
+
+        // Watch for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                if (e.matches) {
+                    document.documentElement.classList.add('dark');
+                    updateDarkModeIcons(true);
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    updateDarkModeIcons(false);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
