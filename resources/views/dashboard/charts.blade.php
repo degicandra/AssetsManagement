@@ -126,11 +126,11 @@ function initDashboardCharts() {
                     label: 'Assets Added',
                     data: {!! $monthlyAssetsTrend !!},
                     borderColor: '#10B981',
-                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    backgroundColor: 'rgba(69, 241, 184, 0.87)',
                     borderWidth: 2,
                     pointBackgroundColor: '#10B981',
                     pointRadius: 4,
-                    fill: true,
+                    fill: false,
                     tension: 0.3
                 }]
             },
@@ -142,6 +142,9 @@ function initDashboardCharts() {
                         labels: {
                             font: {
                                 size: 11
+                            },
+                            color: function(context) {
+                                return document.documentElement.classList.contains('dark') ? '#f0f0f0' : '#1a1a1a';
                             }
                         }
                     }

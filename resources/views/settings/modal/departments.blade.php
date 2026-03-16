@@ -42,7 +42,7 @@
             </div>
             <div class="space-x-2">
                 @if($departments->onFirstPage())
-                    <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-500 rounded">Previous</span>
+                    <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-500 rounded">Previous</span>
                 @else
                     <button onclick="loadSettingsPage('departments', {{ $departments->currentPage() - 1 }})" class="px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">Previous</button>
                 @endif
@@ -50,7 +50,7 @@
                 @if($departments->hasMorePages())
                     <button onclick="loadSettingsPage('departments', {{ $departments->currentPage() + 1 }})" class="px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">Next</button>
                 @else
-                    <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-500 rounded">Next</span>
+                    <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-500 rounded">Next</span>
                 @endif
             </div>
         </div>
@@ -84,7 +84,7 @@
                         </div>
                         <div class="flex gap-2 mt-6">
                             <button type="submit" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md">${isEdit ? 'Update' : 'Create'}</button>
-                            <button type="button" onclick="openSettingsModal('departments')" class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
+                            <button type="button" onclick="openSettingsModal('departments')" class="px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
                         </div>
                     </div>
                 </form>
@@ -135,3 +135,4 @@
             .then(html => document.getElementById('modal-content').innerHTML = html);
     }
 </script>
+

@@ -7,7 +7,7 @@
     <!-- Page Header -->
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-200">Floor Management</h2>
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-800">Floor Management</h2>
             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
                 Manage building floors and their information.
             </p>
@@ -131,7 +131,7 @@
             </div>
             <div class="flex gap-2 mt-6">
                 <button type="submit" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md">Save</button>
-                <button type="button" onclick="closeFloorModal()" class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
+                <button type="button" onclick="closeFloorModal()" class="px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
             </div>
         </form>
     </div>
@@ -220,7 +220,7 @@
             </div>
             <div class="flex gap-2 mt-6">
                 <button type="submit" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md">Save</button>
-                <button type="button" onclick="closeFloorModal()" class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
+                <button type="button" onclick="closeFloorModal()" class="px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
             </div>
         `;
         document.getElementById('floor-modal-container').classList.remove('hidden');
@@ -247,7 +247,7 @@
             </div>
             <div class="flex gap-2 mt-6">
                 <button type="submit" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md">Update</button>
-                <button type="button" onclick="closeFloorModal()" class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
+                <button type="button" onclick="closeFloorModal()" class="px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
             </div>
         `;
         document.getElementById('floor-modal-container').classList.remove('hidden');
@@ -265,5 +265,6 @@
     });
 </script>
 <?php $__env->stopSection(); ?>
+
 
 <?php echo $__env->make('layouts.authenticated', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\AssetsManagement\resources\views/floors/index.blade.php ENDPATH**/ ?>

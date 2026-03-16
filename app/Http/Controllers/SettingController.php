@@ -78,6 +78,27 @@ class SettingController extends Controller
     }
 
     /**
+     * Toggle dark mode and persist to session
+     */
+    public function toggleDarkMode(Request $request)
+    {
+        $isDark = $request->input('isDark', false);
+        $theme = $isDark ? 'dark' : 'light';
+        
+        // Store in session
+        session(['theme' => $theme]);
+        
+        // Force save session to storage
+        $request->session()->save();
+        
+        return response()->json([
+            'success' => true,
+            'isDark' => $isDark,
+            'theme' => session('theme')
+        ], 200, ['Content-Type' => 'application/json']);
+    }
+
+    /**
      * Modal view for settings management
      */
     public function settingsModalView($type)

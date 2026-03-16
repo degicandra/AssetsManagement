@@ -53,27 +53,27 @@
             <div class="lg:col-span-2 space-y-6">
                 <!-- Basic Information -->
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Basic Information</h2>
+                    <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-100 mb-4">Basic Information</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Company</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $asset->company }}</dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100">{{ $asset->company }}</dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Serial Number</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $asset->serial_number ?? 'N/A' }}</dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100">{{ $asset->serial_number ?? 'N/A' }}</dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Model</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $asset->model }}</dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100">{{ $asset->model }}</dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Type</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $asset->type?->name ?? 'N/A' }}</dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100">{{ $asset->type?->name ?? 'N/A' }}</dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Brand</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $asset->brand }}</dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100">{{ $asset->brand }}</dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Status</dt>
@@ -94,15 +94,15 @@
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Person In Charge</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $asset->person_in_charge }}</dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100">{{ $asset->person_in_charge }}</dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Purchase Date</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $asset->purchase_date->format('M d, Y') }}</dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100">{{ $asset->purchase_date->format('M d, Y') }}</dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Warranty Expiration</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100">
                                 {{ $asset->warranty_expiration ? $asset->warranty_expiration->format('M d, Y') : 'N/A' }}
                             </dd>
                         </div>
@@ -111,21 +111,21 @@
 
                 <!-- Location Information -->
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Location Information</h2>
+                    <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-100 mb-4">Location Information</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Department</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $asset->department->name ?? 'N/A' }}</dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100">{{ $asset->department->name ?? 'N/A' }}</dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Floor</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100">
                                 {{ $asset->location->floor->name ?? 'N/A' }} ({{ $asset->location->floor->floor_number ?? '' }})
                             </dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Location</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $asset->location->name ?? 'N/A' }}</dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100">{{ $asset->location->name ?? 'N/A' }}</dd>
                         </div>
                     </div>
                 </div>
@@ -133,24 +133,24 @@
                 <!-- Specifications -->
                 @if($asset->processor || $asset->storage_type || $asset->storage_size || $asset->ram || $asset->specification_upgraded)
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Specifications</h2>
+                    <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-100 mb-4">Specifications</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         @if($asset->processor)
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Processor</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $asset->processor }}</dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100">{{ $asset->processor }}</dd>
                         </div>
                         @endif
                         @if($asset->storage_type)
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Storage Type</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $asset->storage_type }}</dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100">{{ $asset->storage_type }}</dd>
                         </div>
                         @endif
                         @if($asset->storage_size)
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Storage Size</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $asset->storage_size }}</dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100">{{ $asset->storage_size }}</dd>
                         </div>
                         @endif
                         @if($asset->ram)
@@ -172,8 +172,8 @@
                 <!-- Notes -->
                 @if($asset->notes)
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Notes</h2>
-                    <div class="text-sm text-gray-900 dark:text-white whitespace-pre-wrap">
+                    <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-100 mb-4">Notes</h2>
+                    <div class="text-sm text-gray-700 dark:text-gray-100">
                         {{ $asset->notes }}
                     </div>
                 </div>
@@ -182,7 +182,7 @@
                 <!-- Image -->
                 @if($asset->image_path)
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Asset Image</h2>
+                    <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-100 mb-4">Asset Image</h2>
                     <div class="mt-2">
                         <img src="{{ asset('storage/' . $asset->image_path) }}" 
                              alt="Asset Image" 
@@ -195,11 +195,11 @@
             <!-- History -->
             <div class="lg:col-span-1">
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">History</h2>
+                    <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-100 mb-4">History</h2>
                     <div class="space-y-4">
                         @forelse($asset->histories as $history)
                             <div class="border-l-4 border-green-500 pl-4 py-2">
-                                <div class="text-sm font-medium text-gray-900 dark:text-white">
+                                <div class="text-sm font-medium text-gray-700 dark:text-gray-100">
                                     {{ ucfirst(str_replace('_', ' ', $history->action_type)) }}
                                 </div>
                                 @if($history->field_name)

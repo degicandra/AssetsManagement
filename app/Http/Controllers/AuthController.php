@@ -32,6 +32,11 @@ class AuthController extends Controller
         if (Auth::attempt($credentials, $request->remember)) {
             $request->session()->regenerate();
             
+            // Initialize theme if not already set
+            if (!session()->has('theme')) {
+                session(['theme' => 'light']);
+            }
+            
             return redirect()->intended('dashboard')
                 ->with('success', 'Login successful!');
         }

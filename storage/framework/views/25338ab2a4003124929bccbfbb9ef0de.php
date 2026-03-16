@@ -86,7 +86,7 @@ unset($__errorArgs, $__bag); ?>
                         Type *
                     </label>
                     <select name="type_id" id="type_id" required
-                        class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                        class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-100 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">-- Select Type --</option>
                         <?php $__currentLoopData = $types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $type): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <option value="<?php echo e($type->id); ?>" <?php echo e(old('type_id', $asset->type_id) == $type->id ? 'selected' : ''); ?>>
@@ -132,7 +132,7 @@ unset($__errorArgs, $__bag); ?>
                         Status *
                     </label>
                         <select name="status" id="status" required
-                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-100 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">Select Status</option>
                         <option value="ready_to_deploy" <?php echo e(old('status', $asset->status) == 'ready_to_deploy' ? 'selected' : ''); ?>>Ready to Deploy</option>
                         <option value="deployed" <?php echo e(old('status', $asset->status) == 'deployed' ? 'selected' : ''); ?>>Deployed</option>
@@ -160,7 +160,7 @@ unset($__errorArgs, $__bag); ?>
                         Department *
                     </label>
                         <select name="department_id" id="department_id" required
-                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-100 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">Select Department</option>
                         <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <option value="<?php echo e($department->id); ?>" <?php echo e(old('department_id', $asset->department_id) == $department->id ? 'selected' : ''); ?>>
@@ -187,7 +187,7 @@ unset($__errorArgs, $__bag); ?>
                         Floor *
                     </label>
                         <select name="floor_id" id="floor_id" required
-                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-100 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">Select Floor</option>
                         <?php $__currentLoopData = $floors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $floor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <option value="<?php echo e($floor->id); ?>" <?php echo e(old('floor_id', $asset->location->floor_id ?? '') == $floor->id ? 'selected' : ''); ?>>
@@ -203,7 +203,7 @@ unset($__errorArgs, $__bag); ?>
                         Location *
                     </label>
                         <select name="location_id" id="location_id" required
-                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-100 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">Select Location</option>
                         <?php $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <option value="<?php echo e($location->id); ?>" 
@@ -295,7 +295,7 @@ unset($__errorArgs, $__bag); ?>
                             Storage Type
                         </label>
                         <select name="storage_type" id="storage_type"
-                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-100 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                             <option value="">Select Storage Type</option>
                             <option value="HDD" <?php echo e(old('storage_type', $asset->storage_type) == 'HDD' ? 'selected' : ''); ?>>HDD</option>
                             <option value="SSD" <?php echo e(old('storage_type', $asset->storage_type) == 'SSD' ? 'selected' : ''); ?>>SSD</option>
@@ -372,7 +372,7 @@ unset($__errorArgs, $__bag); ?>
                     Notes
                 </label>
                 <textarea name="notes" id="notes" rows="4"
-                          class="w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 shadow-sm focus:border-green-500 focus:ring-green-500"><?php echo e(old('notes', $asset->notes)); ?></textarea>
+                          class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 placeholder-gray-500 dark:placeholder-gray-400 shadow-sm focus:border-green-500 focus:ring-green-500"><?php echo e(old('notes', $asset->notes)); ?></textarea>
             </div>
 
             <!-- Form Actions -->
@@ -411,4 +411,5 @@ unset($__errorArgs, $__bag); ?>
     document.getElementById('floor_id').dispatchEvent(new Event('change'));
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.authenticated', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\AssetsManagement\resources\views/assets/edit.blade.php ENDPATH**/ ?>

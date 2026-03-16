@@ -64,7 +64,7 @@
                         Type *
                     </label>
                     <select name="type_id" id="type_id" required
-                        class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                        class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">-- Select Type --</option>
                         @foreach($types as $type)
                             <option value="{{ $type->id }}" {{ old('type_id') == $type->id ? 'selected' : '' }}>
@@ -83,7 +83,7 @@
                         Brand *
                     </label>
                           <input type="text" name="brand" id="brand" value="{{ old('brand') }}" required
-                              class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                              class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                     @error('brand')
                         <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                     @enderror
@@ -95,7 +95,7 @@
                         Status *
                     </label>
                         <select name="status" id="status" required
-                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">Select Status</option>
                         <option value="ready_to_deploy" {{ old('status') == 'ready_to_deploy' ? 'selected' : '' }}>Ready to Deploy</option>
                         <option value="deployed" {{ old('status') == 'deployed' ? 'selected' : '' }}>Deployed</option>
@@ -116,7 +116,7 @@
                         Department *
                     </label>
                         <select name="department_id" id="department_id" required
-                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">Select Department</option>
                         @foreach($departments as $department)
                             <option value="{{ $department->id }}" {{ old('department_id') == $department->id ? 'selected' : '' }}>
@@ -135,7 +135,7 @@
                         Floor *
                     </label>
                         <select name="floor_id" id="floor_id" required
-                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">Select Floor</option>
                         @foreach($floors as $floor)
                             <option value="{{ $floor->id }}" {{ old('floor_id') == $floor->id ? 'selected' : '' }}>
@@ -151,7 +151,7 @@
                         Location *
                     </label>
                         <select name="location_id" id="location_id" required
-                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">Select Location</option>
                         @foreach($locations as $location)
                             <option value="{{ $location->id }}" 
@@ -172,7 +172,7 @@
                         Person In Charge *
                     </label>
                           <input type="text" name="person_in_charge" id="person_in_charge" value="{{ old('person_in_charge') }}" required
-                              class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                              class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                     @error('person_in_charge')
                         <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                     @enderror
@@ -184,7 +184,7 @@
                         Purchase Date *
                     </label>
                           <input type="date" name="purchase_date" id="purchase_date" value="{{ old('purchase_date') }}" required
-                              class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                              class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                     @error('purchase_date')
                         <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                     @enderror
@@ -221,7 +221,7 @@
                             Storage Type
                         </label>
                         <select name="storage_type" id="storage_type"
-                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                             <option value="">Select Storage Type</option>
                             <option value="HDD" {{ old('storage_type') == 'HDD' ? 'selected' : '' }}>HDD</option>
                             <option value="SSD" {{ old('storage_type') == 'SSD' ? 'selected' : '' }}>SSD</option>
@@ -283,7 +283,7 @@
                     Notes
                 </label>
                 <textarea name="notes" id="notes" rows="4"
-                          class="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 shadow-sm focus:border-green-500 focus:ring-green-500">{{ old('notes') }}</textarea>
+                          class="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 shadow-sm focus:border-green-500 focus:ring-green-500">{{ old('notes') }}</textarea>
             </div>
 
             <!-- Form Actions -->

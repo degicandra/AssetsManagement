@@ -24,7 +24,7 @@
     @if($users->hasPages())
         <div class="flex justify-center gap-2 mt-4 text-sm">
             @if($users->onFirstPage())
-                <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-500 rounded">Previous</span>
+                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-500 rounded">Previous</span>
             @else
                 <button onclick="loadSettingsPage('users', {{ $users->currentPage() - 1 }})" class="px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">Previous</button>
             @endif
@@ -32,7 +32,7 @@
             @if($users->hasMorePages())
                 <button onclick="loadSettingsPage('users', {{ $users->currentPage() + 1 }})" class="px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">Next</button>
             @else
-                <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-500 rounded">Next</span>
+                <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-500 rounded">Next</span>
             @endif
         </div>
     @endif
@@ -45,3 +45,4 @@
             .then(html => document.getElementById('modal-content').innerHTML = html);
     }
 </script>
+

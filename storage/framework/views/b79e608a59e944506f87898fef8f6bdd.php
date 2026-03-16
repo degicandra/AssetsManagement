@@ -7,7 +7,7 @@
     <!-- Page Header -->
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-200">Assets</h2>
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-300">Assets</h2>
             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
                 Manage all company assets and track their status.
             </p>
@@ -114,7 +114,7 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-200">
                                 <?php if($asset->type): ?>
-                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs font-medium"><?php echo e($asset->type->name); ?></span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200 rounded-full text-xs font-medium"><?php echo e($asset->type->name); ?></span>
                                 <?php else: ?>
                                     <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 rounded-full text-xs font-medium">Not Set</span>
                                 <?php endif; ?>
@@ -141,13 +141,13 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-200"><?php echo e($asset->location->name ?? 'N/A'); ?></td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <div class="flex justify-end space-x-2">
-                                    <a href="<?php echo e(route('assets.show', $asset)); ?>" class="text-green-600 hover:text-green-900 dark:text-green-400 dark:hover:text-green-300" title="View">
+                                    <a href="<?php echo e(route('assets.show', $asset)); ?>" class="text-green-400 hover:text-green-900 dark:text-green-500 dark:hover:text-green-400" title="View">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                                         </svg>
                                     </a>
-                                    <a href="<?php echo e(route('assets.edit', $asset)); ?>" class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300" title="Edit">
+                                    <a href="<?php echo e(route('assets.edit', $asset)); ?>" class="text-blue-600 hover:text-blue-900 dark:text-blue-500 dark:hover:text-blue-400" title="Edit">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                                         </svg>
@@ -243,27 +243,22 @@
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
 
-                // Extract new table body
-                const newTbody = doc.querySelector('tbody');
-                const currentTbody = document.querySelector('tbody');
-
-                if (newTbody && currentTbody) {
-                    currentTbody.innerHTML = newTbody.innerHTML;
-                }
-
-                // Extract and update pagination
-                const newPagination = doc.querySelector('.bg-white.dark\\:bg-gray-800.px-6.py-3.border-t');
-                const currentPagination = document.querySelector('.bg-white.dark\\:bg-gray-800.px-6.py-3.border-t');
+                // Find the main content area in current page
+                const currentMain = document.querySelector('main');
                 
-                if (newPagination && currentPagination) {
-                    currentPagination.innerHTML = newPagination.innerHTML;
+                // Extract the new main content from response
+                const newMain = doc.querySelector('main');
+                
+                if (newMain && currentMain) {
+                    // Replace the entire main content (keeps the sidebar intact)
+                    currentMain.innerHTML = newMain.innerHTML;
                     
-                    // Attach click handlers to new pagination links
-                    attachPaginationHandlers(currentPagination);
+                    // Reattach pagination handlers for the new content
+                    const paginationContainer = currentMain.querySelector('.bg-white.dark\\:bg-gray-800.px-6.py-3.border-t');
+                    if (paginationContainer && shouldShowPagination(paginationContainer)) {
+                        attachPaginationHandlers(paginationContainer);
+                    }
                 }
-
-                // Update results count
-                updateResultsCount();
 
                 // Update URL without reloading
                 window.history.replaceState({}, '', `<?php echo e(route('assets.index')); ?>?${params.toString()}`);
@@ -309,19 +304,21 @@
                         const parser = new DOMParser();
                         const doc = parser.parseFromString(html, 'text/html');
 
-                        const newTbody = doc.querySelector('tbody');
-                        const currentTbody = document.querySelector('tbody');
-
-                        if (newTbody && currentTbody) {
-                            currentTbody.innerHTML = newTbody.innerHTML;
-                        }
-
-                        const newPagination = doc.querySelector('.bg-white.dark\\:bg-gray-800.px-6.py-3.border-t');
-                        const currentPagination = document.querySelector('.bg-white.dark\\:bg-gray-800.px-6.py-3.border-t');
+                        // Find the main content area in current page
+                        const currentMain = document.querySelector('main');
                         
-                        if (newPagination && currentPagination) {
-                            currentPagination.innerHTML = newPagination.innerHTML;
-                            attachPaginationHandlers(currentPagination);
+                        // Extract the new main content from response
+                        const newMain = doc.querySelector('main');
+                        
+                        if (newMain && currentMain) {
+                            // Replace the entire main content (keeps the sidebar intact)
+                            currentMain.innerHTML = newMain.innerHTML;
+                            
+                            // Reattach pagination handlers for the new content
+                            const paginationContainer = currentMain.querySelector('.bg-white.dark\\:bg-gray-800.px-6.py-3.border-t');
+                            if (paginationContainer && shouldShowPagination(paginationContainer)) {
+                                attachPaginationHandlers(paginationContainer);
+                            }
                         }
 
                         updateResultsCount();
@@ -340,10 +337,28 @@
             });
         }
 
+        // Check if pagination should be visible (has multiple pages)
+        function shouldShowPagination(paginationContainer) {
+            if (!paginationContainer) return false;
+            
+            // Look for navigation element with pagination links
+            const nav = paginationContainer.querySelector('nav');
+            if (!nav) return false;
+            
+            // Check if there are any clickable pagination links (not disabled)
+            const enabledLinks = nav.querySelectorAll('a:not([aria-disabled="true"])');
+            return enabledLinks.length > 0;
+        }
+
         // Setup initial pagination handlers
         const initialPagination = document.querySelector('.bg-white.dark\\:bg-gray-800.px-6.py-3.border-t');
         if (initialPagination) {
-            attachPaginationHandlers(initialPagination);
+            // Hide pagination if only single page on initial load
+            if (!shouldShowPagination(initialPagination)) {
+                initialPagination.innerHTML = '';
+            } else {
+                attachPaginationHandlers(initialPagination);
+            }
         }
 
         // Add event listeners for filtering
@@ -419,4 +434,5 @@
 </script>
 
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.authenticated', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\AssetsManagement\resources\views/assets/index.blade.php ENDPATH**/ ?>

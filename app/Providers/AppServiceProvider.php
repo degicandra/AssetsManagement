@@ -4,7 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\License;
+use App\Models\AssetRequest;
 use App\Observers\LicenseObserver;
+use App\Observers\AssetRequestObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,5 +24,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         License::observe(LicenseObserver::class);
+        AssetRequest::observe(AssetRequestObserver::class);
     }
 }

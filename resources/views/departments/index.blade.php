@@ -7,7 +7,7 @@
     <!-- Page Header -->
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-200">Department Management</h2>
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-800">Department Management</h2>
             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
                 Manage company departments and their information.
             </p>
@@ -126,7 +126,7 @@
             </div>
             <div class="flex gap-2 mt-6">
                 <button type="submit" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md">Save</button>
-                <button type="button" onclick="closeDepartmentModal()" class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
+                <button type="button" onclick="closeDepartmentModal()" class="px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
             </div>
         </form>
     </div>
@@ -210,7 +210,7 @@
             </div>
             <div class="flex gap-2 mt-6">
                 <button type="submit" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md">Save</button>
-                <button type="button" onclick="closeDepartmentModal()" class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
+                <button type="button" onclick="closeDepartmentModal()" class="px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
             </div>
         `;
         document.getElementById('department-modal-container').classList.remove('hidden');
@@ -233,7 +233,7 @@
             </div>
             <div class="flex gap-2 mt-6">
                 <button type="submit" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md">Update</button>
-                <button type="button" onclick="closeDepartmentModal()" class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
+                <button type="button" onclick="closeDepartmentModal()" class="px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
             </div>
         `;
         document.getElementById('department-modal-container').classList.remove('hidden');
@@ -251,3 +251,4 @@
     });
 </script>
 @endsection
+

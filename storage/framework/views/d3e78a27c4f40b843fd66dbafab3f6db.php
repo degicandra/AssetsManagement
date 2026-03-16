@@ -55,27 +55,27 @@
             <div class="lg:col-span-2 space-y-6">
                 <!-- Basic Information -->
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Basic Information</h2>
+                    <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-100 mb-4">Basic Information</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Company</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($asset->company); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100"><?php echo e($asset->company); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Serial Number</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($asset->serial_number ?? 'N/A'); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100"><?php echo e($asset->serial_number ?? 'N/A'); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Model</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($asset->model); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100"><?php echo e($asset->model); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Type</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($asset->type?->name ?? 'N/A'); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100"><?php echo e($asset->type?->name ?? 'N/A'); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Brand</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($asset->brand); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100"><?php echo e($asset->brand); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Status</dt>
@@ -97,15 +97,15 @@
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Person In Charge</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($asset->person_in_charge); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100"><?php echo e($asset->person_in_charge); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Purchase Date</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($asset->purchase_date->format('M d, Y')); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100"><?php echo e($asset->purchase_date->format('M d, Y')); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Warranty Expiration</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100">
                                 <?php echo e($asset->warranty_expiration ? $asset->warranty_expiration->format('M d, Y') : 'N/A'); ?>
 
                             </dd>
@@ -115,21 +115,21 @@
 
                 <!-- Location Information -->
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Location Information</h2>
+                    <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-100 mb-4">Location Information</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Department</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($asset->department->name ?? 'N/A'); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100"><?php echo e($asset->department->name ?? 'N/A'); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Floor</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100">
                                 <?php echo e($asset->location->floor->name ?? 'N/A'); ?> (<?php echo e($asset->location->floor->floor_number ?? ''); ?>)
                             </dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Location</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($asset->location->name ?? 'N/A'); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100"><?php echo e($asset->location->name ?? 'N/A'); ?></dd>
                         </div>
                     </div>
                 </div>
@@ -137,24 +137,24 @@
                 <!-- Specifications -->
                 <?php if($asset->processor || $asset->storage_type || $asset->storage_size || $asset->ram || $asset->specification_upgraded): ?>
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Specifications</h2>
+                    <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-100 mb-4">Specifications</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <?php if($asset->processor): ?>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Processor</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($asset->processor); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100"><?php echo e($asset->processor); ?></dd>
                         </div>
                         <?php endif; ?>
                         <?php if($asset->storage_type): ?>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Storage Type</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($asset->storage_type); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100"><?php echo e($asset->storage_type); ?></dd>
                         </div>
                         <?php endif; ?>
                         <?php if($asset->storage_size): ?>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Storage Size</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($asset->storage_size); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-700 dark:text-gray-100"><?php echo e($asset->storage_size); ?></dd>
                         </div>
                         <?php endif; ?>
                         <?php if($asset->ram): ?>
@@ -176,8 +176,8 @@
                 <!-- Notes -->
                 <?php if($asset->notes): ?>
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Notes</h2>
-                    <div class="text-sm text-gray-900 dark:text-white whitespace-pre-wrap">
+                    <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-100 mb-4">Notes</h2>
+                    <div class="text-sm text-gray-700 dark:text-gray-100">
                         <?php echo e($asset->notes); ?>
 
                     </div>
@@ -187,7 +187,7 @@
                 <!-- Image -->
                 <?php if($asset->image_path): ?>
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Asset Image</h2>
+                    <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-100 mb-4">Asset Image</h2>
                     <div class="mt-2">
                         <img src="<?php echo e(asset('storage/' . $asset->image_path)); ?>" 
                              alt="Asset Image" 
@@ -200,11 +200,11 @@
             <!-- History -->
             <div class="lg:col-span-1">
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">History</h2>
+                    <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-100 mb-4">History</h2>
                     <div class="space-y-4">
                         <?php $__empty_1 = true; $__currentLoopData = $asset->histories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $history): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <div class="border-l-4 border-green-500 pl-4 py-2">
-                                <div class="text-sm font-medium text-gray-900 dark:text-white">
+                                <div class="text-sm font-medium text-gray-700 dark:text-gray-100">
                                     <?php echo e(ucfirst(str_replace('_', ' ', $history->action_type))); ?>
 
                                 </div>
@@ -375,4 +375,5 @@ unset($__errorArgs, $__bag); ?>
     });
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.authenticated', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\AssetsManagement\resources\views/assets/show.blade.php ENDPATH**/ ?>

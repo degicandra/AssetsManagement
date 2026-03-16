@@ -13,6 +13,7 @@ use App\Http\Controllers\FloorController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\AssetImportController;
 use App\Http\Controllers\AssetTypeController;
+use App\Http\Controllers\AssetRequestController;
 
 // Home page
 Route::get('/', [AuthController::class, 'home'])->name('home');
@@ -68,8 +69,13 @@ Route::middleware(['auth'])->group(function () {
     // Asset Types
     Route::resource('types', AssetTypeController::class, ['only' => ['index', 'store', 'update', 'destroy']]);
     
+    // Asset Requests
+    Route::resource('asset-requests', AssetRequestController::class);
+    Route::post('/asset-requests/{asset_request}/convert-to-asset', [AssetRequestController::class, 'convertToAsset'])->name('asset-requests.convert-to-asset');
+    
     // Settings
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
+    Route::post('/settings/toggle-dark-mode', [SettingController::class, 'toggleDarkMode'])->name('settings.toggle-dark-mode');
     Route::get('/settings/users', [SettingController::class, 'users'])->name('settings.users');
     Route::get('/settings/departments', [SettingController::class, 'departments'])->name('settings.departments');
     Route::get('/settings/floors', [SettingController::class, 'floors'])->name('settings.floors');

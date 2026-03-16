@@ -7,7 +7,7 @@
     <!-- Page Header -->
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-200">Licenses</h2>
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-800">Licenses</h2>
             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
                 Manage company software licenses and track their status.
             </p>
@@ -421,7 +421,7 @@
                     </div>
                     <div class="flex gap-2 mt-6">
                         <button type="submit" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md">Create</button>
-                        <button type="button" onclick="closeLicenseModal()" class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
+                        <button type="button" onclick="closeLicenseModal()" class="px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
                     </div>
                 </form>
             </div>

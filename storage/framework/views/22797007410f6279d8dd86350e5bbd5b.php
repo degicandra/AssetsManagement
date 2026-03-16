@@ -7,7 +7,7 @@
     <!-- Page Header -->
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-200">User Management</h2>
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-800">User Management</h2>
             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
                 Manage system users and their access.
             </p>
@@ -35,7 +35,7 @@
         
         <!-- Clear Filters Button -->
         <div class="mt-4">
-            <button id="clear-user-filters-btn" class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 transition">
+            <button id="clear-user-filters-btn" class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-600 transition">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -136,7 +136,7 @@
             </div>
             <div class="flex gap-2 mt-6">
                 <button type="submit" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md">Create</button>
-                <button type="button" onclick="closeUserModal()" class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
+                <button type="button" onclick="closeUserModal()" class="px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md">Cancel</button>
             </div>
         </form>
     </div>
@@ -221,5 +221,6 @@
     });
 </script>
 <?php $__env->stopSection(); ?>
+
 
 <?php echo $__env->make('layouts.authenticated', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\AssetsManagement\resources\views/users/index.blade.php ENDPATH**/ ?>

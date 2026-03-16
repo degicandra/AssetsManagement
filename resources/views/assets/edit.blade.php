@@ -65,7 +65,7 @@
                         Type *
                     </label>
                     <select name="type_id" id="type_id" required
-                        class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                        class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-100 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">-- Select Type --</option>
                         @foreach($types as $type)
                             <option value="{{ $type->id }}" {{ old('type_id', $asset->type_id) == $type->id ? 'selected' : '' }}>
@@ -96,7 +96,7 @@
                         Status *
                     </label>
                         <select name="status" id="status" required
-                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-100 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">Select Status</option>
                         <option value="ready_to_deploy" {{ old('status', $asset->status) == 'ready_to_deploy' ? 'selected' : '' }}>Ready to Deploy</option>
                         <option value="deployed" {{ old('status', $asset->status) == 'deployed' ? 'selected' : '' }}>Deployed</option>
@@ -117,7 +117,7 @@
                         Department *
                     </label>
                         <select name="department_id" id="department_id" required
-                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-100 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">Select Department</option>
                         @foreach($departments as $department)
                             <option value="{{ $department->id }}" {{ old('department_id', $asset->department_id) == $department->id ? 'selected' : '' }}>
@@ -136,7 +136,7 @@
                         Floor *
                     </label>
                         <select name="floor_id" id="floor_id" required
-                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-100 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">Select Floor</option>
                         @foreach($floors as $floor)
                             <option value="{{ $floor->id }}" {{ old('floor_id', $asset->location->floor_id ?? '') == $floor->id ? 'selected' : '' }}>
@@ -152,7 +152,7 @@
                         Location *
                     </label>
                         <select name="location_id" id="location_id" required
-                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-100 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">Select Location</option>
                         @foreach($locations as $location)
                             <option value="{{ $location->id }}" 
@@ -223,7 +223,7 @@
                             Storage Type
                         </label>
                         <select name="storage_type" id="storage_type"
-                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-100 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                             <option value="">Select Storage Type</option>
                             <option value="HDD" {{ old('storage_type', $asset->storage_type) == 'HDD' ? 'selected' : '' }}>HDD</option>
                             <option value="SSD" {{ old('storage_type', $asset->storage_type) == 'SSD' ? 'selected' : '' }}>SSD</option>
@@ -293,7 +293,7 @@
                     Notes
                 </label>
                 <textarea name="notes" id="notes" rows="4"
-                          class="w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 shadow-sm focus:border-green-500 focus:ring-green-500">{{ old('notes', $asset->notes) }}</textarea>
+                          class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 placeholder-gray-500 dark:placeholder-gray-400 shadow-sm focus:border-green-500 focus:ring-green-500">{{ old('notes', $asset->notes) }}</textarea>
             </div>
 
             <!-- Form Actions -->

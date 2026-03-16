@@ -3,24 +3,24 @@
 <?php $__env->startSection('header', 'Dashboard'); ?>
 
 <?php $__env->startSection('content'); ?>
-<div class="space-y-6 min-h-screen" style="background-color: var(--content-bg-color, #ffffff);">
+<div class="space-y-6 min-h-screen">
     <!-- Clickable Stats Cards -->
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-        <a href="<?php echo e(route('assets.index')); ?>" class="rounded-lg shadow p-4 border hover:shadow-lg transition-shadow cursor-pointer" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+        <a href="<?php echo e(route('assets.index')); ?>" class="rounded-lg shadow p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow cursor-pointer">
             <div class="flex items-center">
-                <div class="p-2 rounded-full bg-green-100 dark:bg-green-900/30">
+                <div class="p-2 rounded-full" style="background-color: var(--green-bg-color, #d1fae5);">
                     <svg class="w-5 h-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                     </svg>
                 </div>
                 <div class="ml-3">
-                    <p class="text-xs font-medium" style="color: var(--text-secondary-color, #4b5563);">Total Assets</p>
-                    <p class="text-xl font-bold" style="color: var(--text-primary-color, #00a400);"><?php echo e($totalAssets); ?></p>
+                    <p class="text-xs font-medium text-gray-700 dark:text-gray-300">Total Assets</p>
+                    <p class="text-xl font-bold text-gray-700 dark:text-gray-300"><?php echo e($totalAssets); ?></p>
                 </div>
             </div>
         </a>
 
-        <a href="<?php echo e(route('assets.index', ['status' => 'deployed'])); ?>" class="rounded-lg shadow p-4 border hover:shadow-lg transition-shadow cursor-pointer" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+        <a href="<?php echo e(route('assets.index', ['status' => 'deployed'])); ?>" class="rounded-lg shadow p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow cursor-pointer">
             <div class="flex items-center">
                 <div class="p-2 rounded-full" style="background-color: var(--blue-bg-color, #dbeafe);">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--blue-text-color, #2563eb);">
@@ -28,13 +28,13 @@
                     </svg>
                 </div>
                 <div class="ml-3">
-                    <p class="text-xs font-medium" style="color: var(--text-secondary-color, #4b5563);">Deployed Assets</p>
-                    <p class="text-xl font-bold" style="color: var(--blue-text-color, #2563eb);"><?php echo e($deployed); ?></p>
+                    <p class="text-xs font-medium text-gray-700 dark:text-gray-300">Deployed Assets</p>
+                    <p class="text-xl font-bold text-gray-700 dark:text-gray-300"><?php echo e($deployed); ?></p>
                 </div>
             </div>
         </a>
 
-        <a href="<?php echo e(route('assets.index', ['status' => 'ready_to_deploy'])); ?>" class="rounded-lg shadow p-4 border hover:shadow-lg transition-shadow cursor-pointer" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+        <a href="<?php echo e(route('assets.index', ['status' => 'ready_to_deploy'])); ?>" class="rounded-lg shadow p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow cursor-pointer">
             <div class="flex items-center">
                 <div class="p-2 rounded-full" style="background-color: var(--blue-bg-color, #dbeafe);">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--blue-text-color, #2563eb);">
@@ -42,27 +42,27 @@
                     </svg>
                 </div>
                 <div class="ml-3">
-                    <p class="text-xs font-medium" style="color: var(--text-secondary-color, #4b5563);">Ready to Deploy</p>
-                    <p class="text-xl font-bold" style="color: var(--text-primary-color, #111827);"><?php echo e($readyToDeploy); ?></p>
+                    <p class="text-xs font-medium text-gray-700 dark:text-gray-300">Ready to Deploy</p>
+                    <p class="text-xl font-bold text-gray-700 dark:text-gray-300"><?php echo e($readyToDeploy); ?></p>
                 </div>
             </div>
         </a>
 
-        <a href="<?php echo e(route('assets.index', ['status' => 'archive'])); ?>" class="rounded-lg shadow p-4 border hover:shadow-lg transition-shadow cursor-pointer" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+        <a href="<?php echo e(route('assets.index', ['status' => 'archive'])); ?>" class="rounded-lg shadow p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow cursor-pointer">
             <div class="flex items-center">
-                <div class="p-2 rounded-full" style="background-color: var(--yellow-bg-color, #fef9c3);">
+                <div class="p-2 rounded-full" style="background-color: var(--yellow-bg-color, #fef3c7);">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--yellow-text-color, #ca8a04);">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                     </svg>
                 </div>
                 <div class="ml-3">
-                    <p class="text-xs font-medium" style="color: var(--text-secondary-color, #4b5563);">Archive</p>
-                    <p class="text-xl font-bold" style="color: var(--text-primary-color, #111827);"><?php echo e($archive); ?></p>
+                    <p class="text-xs font-medium text-gray-700 dark:text-gray-300">Archive</p>
+                    <p class="text-xl font-bold text-gray-700 dark:text-gray-300"><?php echo e($archive); ?></p>
                 </div>
             </div>
         </a>
 
-        <a href="<?php echo e(route('assets.index', ['status' => 'broken'])); ?>" class="rounded-lg shadow p-4 border hover:shadow-lg transition-shadow cursor-pointer" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+        <a href="<?php echo e(route('assets.index', ['status' => 'broken'])); ?>" class="rounded-lg shadow p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow cursor-pointer">
             <div class="flex items-center">
                 <div class="p-2 rounded-full" style="background-color: var(--red-bg-color, #fee2e2);">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--red-text-color, #dc2626);">
@@ -70,13 +70,13 @@
                     </svg>
                 </div>
                 <div class="ml-3">
-                    <p class="text-xs font-medium" style="color: var(--text-secondary-color, #4b5563);">Broken</p>
-                    <p class="text-xl font-bold" style="color: var(--text-primary-color, #111827);"><?php echo e($broken); ?></p>
+                    <p class="text-xs font-medium text-gray-700 dark:text-gray-300">Broken</p>
+                    <p class="text-xl font-bold text-gray-700 dark:text-gray-300"><?php echo e($broken); ?></p>
                 </div>
             </div>
         </a>
 
-        <a href="<?php echo e(route('assets.index', ['status' => 'in_service'])); ?>" class="rounded-lg shadow p-4 border hover:shadow-lg transition-shadow cursor-pointer" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+        <a href="<?php echo e(route('assets.index', ['status' => 'in_service'])); ?>" class="rounded-lg shadow p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow cursor-pointer">
             <div class="flex items-center">
                 <div class="p-2 rounded-full" style="background-color: var(--purple-bg-color, #f3e8ff);">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--purple-text-color, #9333ea);">
@@ -85,13 +85,13 @@
                     </svg>
                 </div>
                 <div class="ml-3">
-                    <p class="text-xs font-medium" style="color: var(--text-secondary-color, #4b5563);">In Service</p>
-                    <p class="text-xl font-bold" style="color: var(--text-primary-color, #111827);"><?php echo e($inService); ?></p>
+                    <p class="text-xs font-medium text-gray-700 dark:text-gray-300">In Service</p>
+                    <p class="text-xl font-bold text-gray-700 dark:text-gray-300"><?php echo e($inService); ?></p>
                 </div>
             </div>
         </a>
 
-        <a href="<?php echo e(route('assets.index', ['status' => 'request_disposal'])); ?>" class="rounded-lg shadow p-4 border hover:shadow-lg transition-shadow cursor-pointer" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+        <a href="<?php echo e(route('assets.index', ['status' => 'request_disposal'])); ?>" class="rounded-lg shadow p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow cursor-pointer">
             <div class="flex items-center">
                 <div class="p-2 rounded-full" style="background-color: var(--orange-bg-color, #ffedd5);">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--orange-text-color, #ea580c);">
@@ -99,15 +99,15 @@
                     </svg>
                 </div>
                 <div class="ml-3">
-                    <p class="text-xs font-medium" style="color: var(--text-secondary-color, #4b5563);">Request Disposal</p>
-                    <p class="text-xl font-bold" style="color: var(--text-primary-color, #111827);"><?php echo e($requestDisposal); ?></p>
+                    <p class="text-xs font-medium text-gray-700 dark:text-gray-300">Request Disposal</p>
+                    <p class="text-xl font-bold text-gray-700 dark:text-gray-300"><?php echo e($requestDisposal); ?></p>
                 </div>
             </div>
         </a>
 
 
 
-        <a href="<?php echo e(route('licenses.index', ['status' => 'active'])); ?>" class="rounded-lg shadow p-4 border hover:shadow-lg transition-shadow cursor-pointer" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+        <a href="<?php echo e(route('licenses.index', ['status' => 'active'])); ?>" class="rounded-lg shadow p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow cursor-pointer">
             <div class="flex items-center">
                 <div class="p-2 rounded-full" style="background-color: var(--indigo-bg-color, #e0e7ff);">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--indigo-text-color, #4f46e5);">
@@ -115,13 +115,13 @@
                     </svg>
                 </div>
                 <div class="ml-3">
-                    <p class="text-xs font-medium" style="color: var(--text-secondary-color, #4b5563);">Active Licenses</p>
-                    <p class="text-xl font-bold" style="color: var(--text-primary-color, #111827);"><?php echo e($activeLicenses); ?></p>
+                    <p class="text-xs font-medium text-gray-700 dark:text-gray-300">Active Licenses</p>
+                    <p class="text-xl font-bold text-gray-700 dark:text-gray-300"><?php echo e($activeLicenses); ?></p>
                 </div>
             </div>
         </a>
         
-        <a href="<?php echo e(route('licenses.index', ['status' => 'expired_soon'])); ?>" class="rounded-lg shadow p-4 border hover:shadow-lg transition-shadow cursor-pointer" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+        <a href="<?php echo e(route('licenses.index', ['status' => 'expired_soon'])); ?>" class="rounded-lg shadow p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow cursor-pointer">
             <div class="flex items-center">
                 <div class="p-2 rounded-full" style="background-color: var(--yellow-bg-color, #fef9c3);">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--yellow-text-color, #ca8a04);">
@@ -129,13 +129,13 @@
                     </svg>
                 </div>
                 <div class="ml-3">
-                    <p class="text-xs font-medium" style="color: var(--text-secondary-color, #4b5563);">Licenses Expiring Soon</p>
-                    <p class="text-xl font-bold" style="color: var(--yellow-text-color, #ca8a04);"><?php echo e($licensesExpiredSoon); ?></p>
+                    <p class="text-xs font-medium text-gray-700 dark:text-gray-300">Licenses Expiring Soon</p>
+                    <p class="text-xl font-bold text-gray-700 dark:text-gray-300"><?php echo e($licensesExpiredSoon); ?></p>
                 </div>
             </div>
         </a>
         
-        <a href="<?php echo e(route('licenses.index', ['status' => 'inactive'])); ?>" class="rounded-lg shadow p-4 hover:shadow-lg transition-shadow cursor-pointer" style="background-color: var(--card-bg-color, #ffffff);">
+        <a href="<?php echo e(route('licenses.index', ['status' => 'inactive'])); ?>" class="rounded-lg shadow p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow cursor-pointer">
             <div class="flex items-center">
                 <div class="p-2 rounded-full" style="background-color: var(--red-bg-color, #fee2e2);">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--red-text-color, #dc2626);">
@@ -143,13 +143,13 @@
                     </svg>
                 </div>
                 <div class="ml-3">
-                    <p class="text-xs font-medium" style="color: var(--text-secondary-color, #4b5563);">Licenses Inactive</p>
-                    <p class="text-xl font-bold" style="color: var(--red-text-color, #dc2626);"><?php echo e($licensesExpired); ?></p>
+                    <p class="text-xs font-medium text-gray-700 dark:text-gray-300">Licenses Inactive</p>
+                    <p class="text-xl font-bold text-gray-700 dark:text-gray-300"><?php echo e($licensesExpired); ?></p>
                 </div>
             </div>
         </a>
 
-        <a href="<?php echo e(route('emails.index')); ?>" class="rounded-lg shadow p-4 border hover:shadow-lg transition-shadow cursor-pointer" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+        <a href="<?php echo e(route('emails.index')); ?>" class="rounded-lg shadow p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow cursor-pointer">
             <div class="flex items-center">
                 <div class="p-2 rounded-full" style="background-color: var(--cyan-bg-color, #cff9fe);">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--cyan-text-color, #0891b2);">
@@ -157,13 +157,13 @@
                     </svg>
                 </div>
                 <div class="ml-3">
-                    <p class="text-xs font-medium" style="color: var(--text-secondary-color, #4b5563);">Total Emails</p>
-                    <p class="text-xl font-bold" style="color: var(--text-primary-color, #111827);"><?php echo e($totalEmails); ?></p>
+                    <p class="text-xs font-medium text-gray-700 dark:text-gray-300">Total Emails</p>
+                    <p class="text-xl font-bold text-gray-700 dark:text-gray-300"><?php echo e($totalEmails); ?></p>
                 </div>
             </div>
         </a>
         
-        <a href="<?php echo e(route('emails.index', ['status' => 'active'])); ?>" class="rounded-lg shadow p-4 border hover:shadow-lg transition-shadow cursor-pointer" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+        <a href="<?php echo e(route('emails.index', ['status' => 'active'])); ?>" class="rounded-lg shadow p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow cursor-pointer">
             <div class="flex items-center">
                 <div class="p-2 rounded-full" style="background-color: var(--green-bg-color, #dcfce7);">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--green-text-color, #16a34a);">
@@ -171,13 +171,13 @@
                     </svg>
                 </div>
                 <div class="ml-3">
-                    <p class="text-xs font-medium" style="color: var(--text-secondary-color, #4b5563);">Active Emails</p>
-                    <p class="text-xl font-bold" style="color: var(--green-text-color, #16a34a);"><?php echo e($activeEmails); ?></p>
+                    <p class="text-xs font-medium text-gray-700 dark:text-gray-300">Active Emails</p>
+                    <p class="text-xl font-bold text-gray-700 dark:text-gray-300"><?php echo e($activeEmails); ?></p>
                 </div>
             </div>
         </a>
         
-        <a href="<?php echo e(route('emails.index', ['status' => 'not used'])); ?>" class="rounded-lg shadow p-4 border hover:shadow-lg transition-shadow cursor-pointer" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+        <a href="<?php echo e(route('emails.index', ['status' => 'not used'])); ?>" class="rounded-lg shadow p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow cursor-pointer">
             <div class="flex items-center">
                 <div class="p-2 rounded-full" style="background-color: var(--gray-bg-color, #f3f4f6);">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--gray-text-color, #4b5563);">
@@ -185,13 +185,13 @@
                     </svg>
                 </div>
                 <div class="ml-3">
-                    <p class="text-xs font-medium" style="color: var(--text-secondary-color, #4b5563);">Not Used Emails</p>
-                    <p class="text-xl font-bold" style="color: var(--gray-text-color, #4b5563);"><?php echo e($notUsedEmails); ?></p>
+                    <p class="text-xs font-medium text-gray-700 dark:text-gray-300">Not Used Emails</p>
+                    <p class="text-xl font-bold text-gray-700 dark:text-gray-300"><?php echo e($notUsedEmails); ?></p>
                 </div>
             </div>
         </a>
         
-        <a href="<?php echo e(route('emails.index', ['status' => 'inactive'])); ?>" class="rounded-lg shadow p-4 hover:shadow-lg transition-shadow cursor-pointer" style="background-color: var(--card-bg-color, #ffffff);">
+        <a href="<?php echo e(route('emails.index', ['status' => 'inactive'])); ?>" class="rounded-lg shadow p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow cursor-pointer">
             <div class="flex items-center">
                 <div class="p-2 rounded-full" style="background-color: var(--red-bg-color, #fee2e2);">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--red-text-color, #dc2626);">
@@ -199,34 +199,25 @@
                     </svg>
                 </div>
                 <div class="ml-3">
-                    <p class="text-xs font-medium" style="color: var(--text-secondary-color, #4b5563);">Inactive Emails</p>
-                    <p class="text-xl font-bold" style="color: var(--red-text-color, #dc2626);"><?php echo e($inactiveEmails); ?></p>
+                    <p class="text-xs font-medium text-gray-700 dark:text-gray-300">Inactive Emails</p>
+                    <p class="text-xl font-bold text-gray-700 dark:text-gray-300"><?php echo e($inactiveEmails); ?></p>
                 </div>
             </div>
         </a>
     </div>
 
     <!-- Analytics Dashboard -->
-    <div class="mb-8" style="background-color: var(--card-bg-color, #ffffff);">
+    <div class="mb-8">
         <div class="flex items-center justify-between mb-6">
-            <h2 class="text-2xl font-bold" style="color: var(--text-primary-color, #111827);">Asset Analytics</h2>
-            <div class="flex space-x-2">
-                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                <div class="w-3 h-3 rounded-full bg-blue-500"></div>
-                <div class="w-3 h-3 rounded-full bg-purple-500"></div>
-                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-            </div>
+            <h2 class="text-2xl font-bold text-gray-700 dark:text-gray-100">Asset Analytics</h2>
         </div>
         
         <!-- Status and Department Charts -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             <!-- Asset Status Distribution -->
-            <div class="rounded-xl shadow-sm p-6 border hover:shadow-md transition-shadow" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+            <div class="rounded-xl shadow-sm p-6 border hover:shadow-md transition-shadow bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-semibold" style="color: var(--text-primary-color, #111827);">Status Distribution</h3>
-                    <div class="px-2 py-1 bg-green-100 dark:bg-green-900/30 rounded-full">
-                        <span class="text-xs font-medium text-green-800 dark:text-green-200">Live</span>
-                    </div>
+                    <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-100">Status Distribution</h3>
                 </div>
                 <div class="h-64 flex items-center justify-center" id="status-chart-container">
                     <canvas id="assetStatusChart"></canvas>
@@ -234,12 +225,9 @@
             </div>
 
             <!-- Department Distribution -->
-            <div class="rounded-xl shadow-sm p-6 border hover:shadow-md transition-shadow" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+            <div class="rounded-xl shadow-sm p-6 border hover:shadow-md transition-shadow bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-semibold" style="color: var(--text-primary-color, #111827);">By Department</h3>
-                    <div class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 rounded-full">
-                        <span class="text-xs font-medium text-blue-800 dark:text-blue-200">Live</span>
-                    </div>
+                    <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-100">By Department</h3>
                 </div>
                 <div class="h-64 flex items-center justify-center" id="department-chart-container">
                     <canvas id="departmentChart"></canvas>
@@ -250,12 +238,9 @@
         <!-- Trends Charts -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Monthly Trends -->
-            <div class="rounded-xl shadow-sm p-6 border hover:shadow-md transition-shadow" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+            <div class="rounded-xl shadow-sm p-6 border hover:shadow-md transition-shadow bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-semibold" style="color: var(--text-primary-color, #111827);">Monthly Trends</h3>
-                    <div class="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 rounded-full">
-                        <span class="text-xs font-medium text-purple-800 dark:text-purple-200">Live</span>
-                    </div>
+                    <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-100">Monthly Trends</h3>
                 </div>
                 <div class="h-64 flex items-center justify-center" id="monthly-chart-container">
                     <canvas id="monthlyTrendsChart"></canvas>
@@ -263,12 +248,9 @@
             </div>
 
             <!-- Damage Trends -->
-            <div class="rounded-xl shadow-sm p-6 border hover:shadow-md transition-shadow" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+            <div class="rounded-xl shadow-sm p-6 border hover:shadow-md transition-shadow bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-semibold" style="color: var(--text-primary-color, #111827);">Damage Trends</h3>
-                    <div class="px-2 py-1 bg-red-100 dark:bg-red-900/30 rounded-full">
-                        <span class="text-xs font-medium text-red-800 dark:text-red-200">Live</span>
-                    </div>
+                    <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-100">Damage Trends</h3>
                 </div>
                 <div class="h-64 flex items-center justify-center" id="damage-chart-container">
                     <canvas id="damageTrendsChart"></canvas>
@@ -278,35 +260,35 @@
     </div>
 
     <!-- Recent Assets -->
-    <div class="rounded-lg shadow p-6 border" style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+    <div class="rounded-xl shadow-sm p-6 border hover:shadow-md transition-shadow bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
         <div class="flex justify-between items-center mb-4">
-            <h3 class="text-lg font-medium" style="color: var(--text-primary-color, #111827);">Recent Assets</h3>
+            <h3 class="text-lg font-medium text-gray-700 dark:text-gray-100">Recent Assets</h3>
             <a href="<?php echo e(route('assets.index')); ?>" class="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 text-sm font-medium">View All</a>
         </div>
         <div class="overflow-x-auto">
-            <table class="min-w-full divide-y" style="border-color: var(--border-color, #e5e7eb);">
-                <thead style="background-color: var(--card-bg-color, #ffffff);">
+            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <thead style="bg-gray-50 dark:bg-gray-800">
                     <tr>
-                        <th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider" style="color: var(--text-secondary-color, #6b7280);">Asset Code</th>
-                        <th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider" style="color: var(--text-secondary-color, #6b7280);">Model</th>
-                        <th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider" style="color: var(--text-secondary-color, #6b7280);">Status</th>
-                        <th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider" style="color: var(--text-secondary-color, #6b7280);">Updated</th>
+                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Asset Code</th>
+                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Model</th>
+                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Status</th>
+                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Updated</th>
                     </tr>
                 </thead>
-                <tbody style="background-color: var(--card-bg-color, #ffffff); border-color: var(--border-color, #e5e7eb);">
+                <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700"">
                     <?php $__empty_1 = true; $__currentLoopData = $recentAssets; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $asset): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                        <tr style="background-color: var(--card-bg-color, #ffffff);" onmouseover="this.style.backgroundColor='var(--gray-bg-color, #f9fafb)'" onmouseout="this.style.backgroundColor='var(--card-bg-color, #ffffff)'">
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
                             <td class="px-4 py-3 whitespace-nowrap">
                                 <a href="<?php echo e(route('assets.show', $asset)); ?>" class="text-green-600 hover:text-green-900 font-medium">
                                     <?php echo e($asset->asset_code); ?>
 
                                 </a>
                             </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-sm" style="color: var(--text-primary-color, #111827);">
+                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900 dark:text-gray-200">
                                 <?php echo e($asset->model ?? 'N/A'); ?>
 
                             </td>
-                            <td class="px-4 py-3 whitespace-nowrap">
+                            <td class="px-4 py-3 whitespace-nowrap text-gray-900 dark:text-gray-200">
                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                                     <?php switch($asset->status):
                                         case ('ready_to_deploy'): ?> bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200 <?php break; ?>
@@ -343,4 +325,5 @@
 
 <?php echo $__env->make('dashboard.charts', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.authenticated', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\AssetsManagement\resources\views/dashboard/index.blade.php ENDPATH**/ ?>
