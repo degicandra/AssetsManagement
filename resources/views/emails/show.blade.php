@@ -45,23 +45,23 @@
             <div class="lg:col-span-2 space-y-6">
                 <!-- Basic Information -->
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Email Information</h2>
+                    <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-100 mb-4">Email Information</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Email Address</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $email->email }}</dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $email->email }}</dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Full Name</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $email->name }}</dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $email->name }}</dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Position</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $email->position ?? 'N/A' }}</dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $email->position ?? 'N/A' }}</dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Department</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $email->department->name ?? 'N/A' }}</dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $email->department->name ?? 'N/A' }}</dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Status</dt>
@@ -79,7 +79,7 @@
                         @if($email->description)
                         <div class="md:col-span-2">
                             <dt class="text-sm font-medium text-gray-600 dark:text-gray-300">Description</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white whitespace-pre-wrap">{{ $email->description }}</dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100 whitespace-pre-wrap">{{ $email->description }}</dd>
                         </div>
                         @endif
                     </div>
@@ -89,11 +89,11 @@
             <!-- History -->
             <div class="lg:col-span-1">
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">History</h2>
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">History</h2>
                     <div class="space-y-4">
                         @forelse($email->histories as $history)
                             <div class="border-l-4 border-green-500 pl-4 py-2">
-                                <div class="text-sm font-medium text-gray-900 dark:text-white">
+                                <div class="text-sm font-medium text-gray-900 dark:text-gray-100">
                                     {{ ucfirst(str_replace('_', ' ', $history->action_type)) }}
                                 </div>
                                 @if($history->field_name)

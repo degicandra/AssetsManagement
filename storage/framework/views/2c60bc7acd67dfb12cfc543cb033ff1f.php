@@ -47,23 +47,23 @@
             <div class="lg:col-span-2 space-y-6">
                 <!-- Basic Information -->
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Email Information</h2>
+                    <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-100 mb-4">Email Information</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Email Address</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($email->email); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100"><?php echo e($email->email); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Full Name</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($email->name); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100"><?php echo e($email->name); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Position</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($email->position ?? 'N/A'); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100"><?php echo e($email->position ?? 'N/A'); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Department</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($email->department->name ?? 'N/A'); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100"><?php echo e($email->department->name ?? 'N/A'); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Status</dt>
@@ -82,7 +82,7 @@
                         <?php if($email->description): ?>
                         <div class="md:col-span-2">
                             <dt class="text-sm font-medium text-gray-600 dark:text-gray-300">Description</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white whitespace-pre-wrap"><?php echo e($email->description); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100 whitespace-pre-wrap"><?php echo e($email->description); ?></dd>
                         </div>
                         <?php endif; ?>
                     </div>
@@ -92,11 +92,11 @@
             <!-- History -->
             <div class="lg:col-span-1">
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">History</h2>
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">History</h2>
                     <div class="space-y-4">
                         <?php $__empty_1 = true; $__currentLoopData = $email->histories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $history): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <div class="border-l-4 border-green-500 pl-4 py-2">
-                                <div class="text-sm font-medium text-gray-900 dark:text-white">
+                                <div class="text-sm font-medium text-gray-900 dark:text-gray-100">
                                     <?php echo e(ucfirst(str_replace('_', ' ', $history->action_type))); ?>
 
                                 </div>

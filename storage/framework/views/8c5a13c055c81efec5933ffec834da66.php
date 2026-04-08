@@ -1,13 +1,13 @@
-@extends('layouts.authenticated')
 
-@section('header', 'Edit License')
 
-@section('content')
+<?php $__env->startSection('header', 'Edit License'); ?>
+
+<?php $__env->startSection('content'); ?>
 <div class="max-w-4xl mx-auto">
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700">
-        <form action="{{ route('licenses.update', $license) }}" method="POST" class="space-y-6">
-            @csrf
-            @method('PUT')
+        <form action="<?php echo e(route('licenses.update', $license)); ?>" method="POST" class="space-y-6">
+            <?php echo csrf_field(); ?>
+            <?php echo method_field('PUT'); ?>
             <div class="mb-4">
                 <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-200">Edit License</h2>
                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Update license details.</p>
@@ -19,11 +19,18 @@
                     <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         Software Name <span class="text-red-500">*</span>
                     </label>
-                    <input type="text" name="software_name" value="{{ old('software_name', $license->software_name) }}" required
+                    <input type="text" name="software_name" value="<?php echo e(old('software_name', $license->software_name)); ?>" required
                            class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-900 transition-colors">
-                    @error('software_name')
-                        <p class="mt-1 text-sm text-red-500 dark:text-red-400 font-medium">{{ $message }}</p>
-                    @enderror
+                    <?php $__errorArgs = ['software_name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <p class="mt-1 text-sm text-red-500 dark:text-red-400 font-medium"><?php echo e($message); ?></p>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <!-- License Key -->
@@ -31,11 +38,18 @@
                     <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         License Key <span class="text-red-500">*</span>
                     </label>
-                    <input type="text" name="license_key" value="{{ old('license_key', $license->license_key) }}" required
+                    <input type="text" name="license_key" value="<?php echo e(old('license_key', $license->license_key)); ?>" required
                            class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-900 transition-colors">
-                    @error('license_key')
-                        <p class="mt-1 text-sm text-red-500 dark:text-red-400 font-medium">{{ $message }}</p>
-                    @enderror
+                    <?php $__errorArgs = ['license_key'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <p class="mt-1 text-sm text-red-500 dark:text-red-400 font-medium"><?php echo e($message); ?></p>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <!-- Purchase Date -->
@@ -43,11 +57,18 @@
                     <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         Purchase Date <span class="text-red-500">*</span>
                     </label>
-                    <input type="date" name="purchase_date" value="{{ old('purchase_date', $license->purchase_date->format('Y-m-d')) }}" required
+                    <input type="date" name="purchase_date" value="<?php echo e(old('purchase_date', $license->purchase_date->format('Y-m-d'))); ?>" required
                            class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-900 transition-colors">
-                    @error('purchase_date')
-                        <p class="mt-1 text-sm text-red-500 dark:text-red-400 font-medium">{{ $message }}</p>
-                    @enderror
+                    <?php $__errorArgs = ['purchase_date'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <p class="mt-1 text-sm text-red-500 dark:text-red-400 font-medium"><?php echo e($message); ?></p>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <!-- Expiry Date -->
@@ -55,11 +76,18 @@
                     <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         Expiry Date <span class="text-red-500">*</span>
                     </label>
-                    <input type="date" name="expiry_date" value="{{ old('expiry_date', $license->expiry_date->format('Y-m-d')) }}" required
+                    <input type="date" name="expiry_date" value="<?php echo e(old('expiry_date', $license->expiry_date->format('Y-m-d'))); ?>" required
                            class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-900 transition-colors">
-                    @error('expiry_date')
-                        <p class="mt-1 text-sm text-red-500 dark:text-red-400 font-medium">{{ $message }}</p>
-                    @enderror
+                    <?php $__errorArgs = ['expiry_date'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <p class="mt-1 text-sm text-red-500 dark:text-red-400 font-medium"><?php echo e($message); ?></p>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <!-- Status -->
@@ -70,15 +98,23 @@
                     <select name="status" required
                             class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-100 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">Select Status</option>
-                        @foreach($statuses as $status)
-                            <option value="{{ $status }}" {{ old('status', $license->status) == $status ? 'selected' : '' }}>
-                                {{ ucfirst(str_replace('_', ' ', $status)) }}
+                        <?php $__currentLoopData = $statuses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $status): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($status); ?>" <?php echo e(old('status', $license->status) == $status ? 'selected' : ''); ?>>
+                                <?php echo e(ucfirst(str_replace('_', ' ', $status))); ?>
+
                             </option>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
-                    @error('status')
-                        <p class="mt-1 text-sm text-red-500 dark:text-red-400 font-medium">{{ $message }}</p>
-                    @enderror
+                    <?php $__errorArgs = ['status'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <p class="mt-1 text-sm text-red-500 dark:text-red-400 font-medium"><?php echo e($message); ?></p>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <!-- Department -->
@@ -89,15 +125,23 @@
                     <select name="department_id" required
                             class="w-full rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-100 shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option value="">Select Department</option>
-                        @foreach($departments as $department)
-                            <option value="{{ $department->id }}" {{ old('department_id', $license->department_id) == $department->id ? 'selected' : '' }}>
-                                {{ $department->name }}
+                        <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($department->id); ?>" <?php echo e(old('department_id', $license->department_id) == $department->id ? 'selected' : ''); ?>>
+                                <?php echo e($department->name); ?>
+
                             </option>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
-                    @error('department_id')
-                        <p class="mt-1 text-sm text-red-500 dark:text-red-400 font-medium">{{ $message }}</p>
-                    @enderror
+                    <?php $__errorArgs = ['department_id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <p class="mt-1 text-sm text-red-500 dark:text-red-400 font-medium"><?php echo e($message); ?></p>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <!-- Quantity -->
@@ -105,11 +149,18 @@
                     <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         Quantity
                     </label>
-                    <input type="number" name="quantity" min="1" value="{{ old('quantity', $license->quantity) }}"
+                    <input type="number" name="quantity" min="1" value="<?php echo e(old('quantity', $license->quantity)); ?>"
                            class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-900 transition-colors">
-                    @error('quantity')
-                        <p class="mt-1 text-sm text-red-500 dark:text-red-400 font-medium">{{ $message }}</p>
-                    @enderror
+                    <?php $__errorArgs = ['quantity'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <p class="mt-1 text-sm text-red-500 dark:text-red-400 font-medium"><?php echo e($message); ?></p>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <!-- Notes -->
@@ -119,16 +170,23 @@
                     </label>
                     <textarea name="notes" rows="4"
                               class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-900 transition-colors resize-none"
-                              placeholder="Add any additional notes...">{{ old('notes', $license->notes) }}</textarea>
-                    @error('notes')
-                        <p class="mt-1 text-sm text-red-500 dark:text-red-400 font-medium">{{ $message }}</p>
-                    @enderror
+                              placeholder="Add any additional notes..."><?php echo e(old('notes', $license->notes)); ?></textarea>
+                    <?php $__errorArgs = ['notes'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <p class="mt-1 text-sm text-red-500 dark:text-red-400 font-medium"><?php echo e($message); ?></p>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                 </div>
             </div>
 
             <!-- Form Actions -->
             <div class="flex justify-end gap-3 pt-6 border-t border-gray-200 dark:border-gray-700">
-                <a href="{{ route('licenses.show', $license) }}" 
+                <a href="<?php echo e(route('licenses.show', $license)); ?>" 
                    class="px-6 py-2.5 text-sm font-semibold text-gray-700 bg-gray-100 dark:bg-gray-700 hover:bg-gray-150 dark:hover:bg-gray-600 rounded-lg transition-colors duration-200">
                     Cancel
                 </a>
@@ -143,4 +201,6 @@
         </form>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.authenticated', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\AssetsManagement\resources\views/licenses/edit.blade.php ENDPATH**/ ?>

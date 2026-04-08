@@ -9,7 +9,7 @@
         <div class="p-6 border-b border-gray-200 dark:border-gray-700">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
-                    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
+                    <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-200">
                         <?php echo e($asset->asset_code); ?>
 
                     </h1>

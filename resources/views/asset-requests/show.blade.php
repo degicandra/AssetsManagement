@@ -27,7 +27,7 @@
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
                     <div class="flex items-center gap-3">
-                        <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
+                        <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-100">
                             {{ $assetRequest->title }}
                         </h1>
                         <span class="px-3 py-1 inline-flex text-sm leading-5 font-semibold rounded-full
@@ -87,23 +87,23 @@
             <div class="lg:col-span-2 space-y-6">
                 <!-- Item Description -->
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Item Description</h2>
-                    <div class="text-sm text-gray-900 dark:text-white text-left break-words">
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Item Description</h2>
+                    <div class="text-sm text-gray-900 dark:text-gray-100 text-left break-words">
                         {{ $assetRequest->item_description }}
                     </div>
                 </div>
 
                 <!-- Basic Information -->
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Basic Information</h2>
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Basic Information</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Department</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $assetRequest->department->name }}</dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $assetRequest->department->name }}</dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Floor</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">
                                 @if($assetRequest->floor)
                                     {{ $assetRequest->floor->name }}
                                 @else
@@ -113,7 +113,7 @@
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Location</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">
                                 @if($assetRequest->location)
                                     {{ $assetRequest->location->name }}
                                 @else
@@ -123,11 +123,11 @@
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Requested By</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $assetRequest->requested_by }}</dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $assetRequest->requested_by }}</dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Request Date</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">{{ $assetRequest->request_date->format('d M Y') }}</dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $assetRequest->request_date->format('d M Y') }}</dd>
                         </div>
                     </div>
                 </div>
@@ -135,8 +135,8 @@
                 <!-- Notes -->
                 @if($assetRequest->notes)
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Notes</h2>
-                    <div class="text-sm text-gray-900 dark:text-white text-left break-words">
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Notes</h2>
+                    <div class="text-sm text-gray-900 dark:text-gray-100 text-left break-words">
                         {{ $assetRequest->notes }}
                     </div>
                 </div>
@@ -147,7 +147,7 @@
             <div class="lg:col-span-1 space-y-6">
                 <!-- Status History -->
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Status History</h2>
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Status History</h2>
                     
                     @if($assetRequest->histories->count() > 0)
                         <div class="space-y-4">
@@ -185,14 +185,6 @@
                     @else
                         <p class="text-gray-600 dark:text-gray-400 text-sm">No history available</p>
                     @endif
-                </div>
-
-                <!-- Back Button -->
-                <div>
-                    <a href="{{ route('asset-requests.index') }}" 
-                       class="w-full px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md font-medium hover:bg-gray-300 dark:hover:bg-gray-700 flex items-center justify-center transition-colors duration-200">
-                        Back
-                    </a>
                 </div>
             </div>
         </div>

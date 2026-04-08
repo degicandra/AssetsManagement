@@ -1,8 +1,8 @@
-@extends('layouts.authenticated')
 
-@section('header', 'License Details')
 
-@section('content')
+<?php $__env->startSection('header', 'License Details'); ?>
+
+<?php $__env->startSection('content'); ?>
 <div class="max-w-6xl mx-auto">
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow border border-gray-200 dark:border-gray-700">
         <!-- License Header -->
@@ -10,23 +10,25 @@
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
                     <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-100">
-                        {{ $license->software_name }}
+                        <?php echo e($license->software_name); ?>
+
                     </h1>
                     <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                        {{ ucfirst(str_replace('_', ' ', $license->status)) }} • License Key: {{ $license->license_key }}
+                        <?php echo e(ucfirst(str_replace('_', ' ', $license->status))); ?> • License Key: <?php echo e($license->license_key); ?>
+
                     </p>
                 </div>
                 <div class="flex flex-wrap gap-2">
-                    <a href="{{ route('licenses.edit', $license) }}" 
+                    <a href="<?php echo e(route('licenses.edit', $license)); ?>" 
                        class="px-4 py-2 bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 text-white rounded-md font-medium flex items-center transition-colors duration-200">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                         </svg>
                         Edit
                     </a>
-                    <form action="{{ route('licenses.destroy', $license) }}" method="POST" class="inline">
-                        @csrf
-                        @method('DELETE')
+                    <form action="<?php echo e(route('licenses.destroy', $license)); ?>" method="POST" class="inline">
+                        <?php echo csrf_field(); ?>
+                        <?php echo method_field('DELETE'); ?>
                         <button type="submit" 
                                 class="px-4 py-2 bg-red-600 hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-800 text-white rounded-md font-medium flex items-center transition-colors duration-200"
                                 onclick="return confirm('Are you sure you want to delete this license?')">
@@ -49,59 +51,62 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Software Name</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $license->software_name }}</dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100"><?php echo e($license->software_name); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">License Key</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100 font-mono">{{ $license->license_key }}</dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100 font-mono"><?php echo e($license->license_key); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Purchase Date</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $license->purchase_date->format('M d, Y') }}</dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100"><?php echo e($license->purchase_date->format('M d, Y')); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Expiry Date</dt>
                             <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">
-                                {{ $license->expiry_date->format('M d, Y') }}
-                                @if($license->days_until_expiry !== null)
-                                    <span class="text-xs {{ $license->days_until_expiry < 30 ? 'text-red-600' : 'text-gray-500' }}">
-                                        ({{ $license->days_until_expiry }} days remaining)
+                                <?php echo e($license->expiry_date->format('M d, Y')); ?>
+
+                                <?php if($license->days_until_expiry !== null): ?>
+                                    <span class="text-xs <?php echo e($license->days_until_expiry < 30 ? 'text-red-600' : 'text-gray-500'); ?>">
+                                        (<?php echo e($license->days_until_expiry); ?> days remaining)
                                     </span>
-                                @endif
+                                <?php endif; ?>
                             </dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Status</dt>
                             <dd class="mt-1">
-                                <span class="px-3 py-1 rounded-full text-xs font-semibold {{ $license->status_badge_class }}">
-                                    {{ ucfirst(str_replace('_', ' ', $license->status)) }}
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold <?php echo e($license->status_badge_class); ?>">
+                                    <?php echo e(ucfirst(str_replace('_', ' ', $license->status))); ?>
+
                                 </span>
                             </dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Department</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $license->department->name ?? 'N/A' }}</dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100"><?php echo e($license->department->name ?? 'N/A'); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Quantity</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $license->quantity ?? '-' }}</dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100"><?php echo e($license->quantity ?? '-'); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Created</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $license->created_at->format('M d, Y H:i') }}</dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100"><?php echo e($license->created_at->format('M d, Y H:i')); ?></dd>
                         </div>
                     </div>
                 </div>
 
                 <!-- Notes -->
-                @if($license->notes)
+                <?php if($license->notes): ?>
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
                     <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-100 mb-4">Notes</h2>
                     <div class="text-sm text-gray-700 dark:text-gray-100">
-                        {{ $license->notes }}
+                        <?php echo e($license->notes); ?>
+
                     </div>
                 </div>
-                @endif
+                <?php endif; ?>
             </div>
 
             <!-- History -->
@@ -109,36 +114,42 @@
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
                     <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">History</h2>
                     <div class="space-y-4">
-                        @forelse($license->licenseHistories as $history)
+                        <?php $__empty_1 = true; $__currentLoopData = $license->licenseHistories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $history): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <div class="border-l-4 border-green-500 pl-4 py-2">
                                 <div class="text-sm font-medium text-gray-900 dark:text-gray-100">
-                                    {{ ucfirst($history->action) }}
+                                    <?php echo e(ucfirst($history->action)); ?>
+
                                 </div>
-                                @if($history->field_name)
+                                <?php if($history->field_name): ?>
                                     <div class="text-xs text-gray-700 dark:text-gray-100 mt-1">
-                                        {{ $history->field_name }}: 
-                                        @if($history->old_value)
-                                            <span class="line-through">{{ $history->old_value }}</span> → 
-                                        @endif
-                                        {{ $history->new_value }}
+                                        <?php echo e($history->field_name); ?>: 
+                                        <?php if($history->old_value): ?>
+                                            <span class="line-through"><?php echo e($history->old_value); ?></span> → 
+                                        <?php endif; ?>
+                                        <?php echo e($history->new_value); ?>
+
                                     </div>
-                                @endif
-                                @if($history->notes)
+                                <?php endif; ?>
+                                <?php if($history->notes): ?>
                                     <div class="text-xs text-gray-500 dark:text-gray-300 mt-1">
-                                        {{ $history->notes }}
+                                        <?php echo e($history->notes); ?>
+
                                     </div>
-                                @endif
+                                <?php endif; ?>
                                 <div class="text-xs text-gray-400 dark:text-gray-400 mt-1">
-                                    {{ $history->created_at->format('M d, Y H:i') }} by {{ $history->user->name ?? 'System' }}
+                                    <?php echo e($history->created_at->format('M d, Y H:i')); ?> by <?php echo e($history->user->name ?? 'System'); ?>
+
                                 </div>
                             </div>
-                        @empty
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                             <p class="text-sm text-gray-500 dark:text-gray-300">No history records found.</p>
-                        @endforelse
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.authenticated', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\AssetsManagement\resources\views/licenses/show.blade.php ENDPATH**/ ?>

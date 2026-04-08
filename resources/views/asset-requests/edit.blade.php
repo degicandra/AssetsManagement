@@ -120,7 +120,8 @@
                     </svg>
                     Update Request
                 </button>
-                <a href="{{ route('asset-requests.show', $assetRequest) }}" class="px-6 py-2 bg-gray-200 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-lg font-medium hover:bg-gray-300 dark:hover:bg-gray-700 transition">
+                <a href="{{ route('asset-requests.show', $assetRequest) }}" 
+                class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 dark:bg-gray-700 rounded-md hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200">
                     Cancel
                 </a>
             </div>

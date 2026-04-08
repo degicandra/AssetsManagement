@@ -27,7 +27,7 @@
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
                     <div class="flex items-center gap-3">
-                        <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
+                        <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-100">
                             <?php echo e($assetRequest->title); ?>
 
                         </h1>
@@ -90,8 +90,8 @@
             <div class="lg:col-span-2 space-y-6">
                 <!-- Item Description -->
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Item Description</h2>
-                    <div class="text-sm text-gray-900 dark:text-white text-left break-words">
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Item Description</h2>
+                    <div class="text-sm text-gray-900 dark:text-gray-100 text-left break-words">
                         <?php echo e($assetRequest->item_description); ?>
 
                     </div>
@@ -99,15 +99,15 @@
 
                 <!-- Basic Information -->
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Basic Information</h2>
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Basic Information</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Department</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($assetRequest->department->name); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100"><?php echo e($assetRequest->department->name); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Floor</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">
                                 <?php if($assetRequest->floor): ?>
                                     <?php echo e($assetRequest->floor->name); ?>
 
@@ -118,7 +118,7 @@
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Location</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white">
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">
                                 <?php if($assetRequest->location): ?>
                                     <?php echo e($assetRequest->location->name); ?>
 
@@ -129,11 +129,11 @@
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Requested By</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($assetRequest->requested_by); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100"><?php echo e($assetRequest->requested_by); ?></dd>
                         </div>
                         <div>
                             <dt class="text-sm font-medium text-gray-700 dark:text-gray-100">Request Date</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-white"><?php echo e($assetRequest->request_date->format('d M Y')); ?></dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100"><?php echo e($assetRequest->request_date->format('d M Y')); ?></dd>
                         </div>
                     </div>
                 </div>
@@ -141,8 +141,8 @@
                 <!-- Notes -->
                 <?php if($assetRequest->notes): ?>
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Notes</h2>
-                    <div class="text-sm text-gray-900 dark:text-white text-left break-words">
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Notes</h2>
+                    <div class="text-sm text-gray-900 dark:text-gray-100 text-left break-words">
                         <?php echo e($assetRequest->notes); ?>
 
                     </div>
@@ -154,7 +154,7 @@
             <div class="lg:col-span-1 space-y-6">
                 <!-- Status History -->
                 <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Status History</h2>
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Status History</h2>
                     
                     <?php if($assetRequest->histories->count() > 0): ?>
                         <div class="space-y-4">
@@ -194,14 +194,6 @@
                     <?php else: ?>
                         <p class="text-gray-600 dark:text-gray-400 text-sm">No history available</p>
                     <?php endif; ?>
-                </div>
-
-                <!-- Back Button -->
-                <div>
-                    <a href="<?php echo e(route('asset-requests.index')); ?>" 
-                       class="w-full px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-900 dark:text-gray-200 rounded-md font-medium hover:bg-gray-300 dark:hover:bg-gray-700 flex items-center justify-center transition-colors duration-200">
-                        Back
-                    </a>
                 </div>
             </div>
         </div>
