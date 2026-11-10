@@ -38,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
     
     // Assets - JSON endpoint BEFORE resource routes to prioritize matching
     Route::get('/assets/json', [AssetController::class, 'jsonIndex'])->name('assets.json');
+    Route::get('/assets/json-filter', [AssetController::class, 'jsonFilter'])->name('assets.json-filter');
     Route::get('/assets/search/{code}', [AssetController::class, 'searchByCode'])->name('assets.search');
     Route::get('/assets/import', [AssetImportController::class, 'showImportForm'])->name('assets.import-form');
     Route::post('/assets/import', [AssetImportController::class, 'import'])->name('assets.import');

@@ -201,22 +201,42 @@
     // Store all locations data for cascading filter
     const allLocations = {!! json_encode($locations->map(function($loc) { return ['id' => $loc->id, 'name' => $loc->name, 'floor_id' => $loc->floor_id]; })->toArray()) !!};
 
+    // Global variables for filter elements
+    let filterForm = null;
+    let searchInput = null;
+    let typeFilter = null;
+    let statusFilter = null;
+    let departmentFilter = null;
+    let floorFilter = null;
+    let locationFilter = null;
+    let filterTimeout = null;
+    let currentAbort = null;
+
     document.addEventListener('DOMContentLoaded', function() {
-        const filterForm = document.getElementById('filter-form');
-        const searchInput = document.getElementById('search-input');
-        const typeFilter = document.getElementById('type-filter');
-        const statusFilter = document.getElementById('status-filter');
-        const departmentFilter = document.getElementById('department-filter');
-        const floorFilter = document.getElementById('floor-filter');
-        const locationFilter = document.getElementById('location-filter');
-        
-        let searchTimeout = null;
-        let isFiltering = false;
+        // Initialize global variables
+        filterForm = document.getElementById('filter-form');
+        searchInput = document.getElementById('search-input');
+        typeFilter = document.getElementById('type-filter');
+        statusFilter = document.getElementById('status-filter');
+        departmentFilter = document.getElementById('department-filter');
+        floorFilter = document.getElementById('floor-filter');
+        locationFilter = document.getElementById('location-filter');
+
+        // Debounce function untuk menghindari request bersamaan
+        function debounceFilter() {
+            clearTimeout(filterTimeout);
+            filterTimeout = setTimeout(() => {
+                applyFilters();
+            }, 200);  // Reduced debounce time for immediate response
+        }
 
         // Function to perform AJAX filtering
         function applyFilters() {
-            if (isFiltering) return;
-            isFiltering = true;
+            // Cancel previous request jika masih berjalan
+            if (currentAbort) {
+                currentAbort.abort();
+            }
+            currentAbort = new AbortController();
 
             // Get form data
             const formData = new FormData(filterForm);
@@ -230,6 +250,7 @@
 
             // Fetch filtered results
             fetch(`{{ route('assets.index') }}?${params.toString()}`, {
+                signal: currentAbort.signal,
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest',
                     'Accept': 'text/html'
@@ -251,6 +272,9 @@
                     // Replace the entire main content (keeps the sidebar intact)
                     currentMain.innerHTML = newMain.innerHTML;
                     
+                    // Reattach event listeners ke filter form baru
+                    reattachFilterListeners();
+                    
                     // Reattach pagination handlers for the new content
                     const paginationContainer = currentMain.querySelector('.bg-white.dark\\:bg-gray-800.px-6.py-3.border-t');
                     if (paginationContainer && shouldShowPagination(paginationContainer)) {
@@ -260,16 +284,50 @@
 
                 // Update URL without reloading
                 window.history.replaceState({}, '', `{{ route('assets.index') }}?${params.toString()}`);
+                updateResultsCount();
             })
             .catch(error => {
-                console.error('Filter error:', error);
-                if (resultsSpan) {
-                    resultsSpan.textContent = 'Error loading results';
+                if (error.name !== 'AbortError') {
+                    console.error('Filter error:', error);
+                    if (resultsSpan) {
+                        resultsSpan.textContent = 'Error loading results';
+                    }
                 }
-            })
-            .finally(() => {
-                isFiltering = false;
             });
+        }
+
+        // Reattach filter listeners setelah DOM berubah
+        function reattachFilterListeners() {
+            // Get new elements from updated DOM
+            filterForm = document.getElementById('filter-form');
+            searchInput = document.getElementById('search-input');
+            typeFilter = document.getElementById('type-filter');
+            statusFilter = document.getElementById('status-filter');
+            departmentFilter = document.getElementById('department-filter');
+            floorFilter = document.getElementById('floor-filter');
+            locationFilter = document.getElementById('location-filter');
+
+            // Re-attach event listeners
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    clearTimeout(filterTimeout);
+                    filterTimeout = setTimeout(() => {
+                        applyFilters();
+                    }, 500);
+                });
+            }
+            
+            if (typeFilter) typeFilter.addEventListener('change', applyFilters);
+            if (statusFilter) statusFilter.addEventListener('change', applyFilters);
+            if (departmentFilter) departmentFilter.addEventListener('change', applyFilters);
+            if (locationFilter) locationFilter.addEventListener('change', applyFilters);
+            
+            if (floorFilter) {
+                floorFilter.addEventListener('change', function() {
+                    updateLocationOptions(floorFilter, locationFilter);
+                    applyFilters();
+                });
+            }
         }
 
         // Attach pagination handlers
@@ -285,13 +343,19 @@
                     const href = this.getAttribute('href');
                     if (!href) return;
 
-                    isFiltering = true;
+                    // Cancel previous request
+                    if (currentAbort) {
+                        currentAbort.abort();
+                    }
+                    currentAbort = new AbortController();
+
                     const resultsSpan = document.getElementById('results-count');
                     if (resultsSpan) {
                         resultsSpan.textContent = 'Loading...';
                     }
 
                     fetch(href, {
+                        signal: currentAbort.signal,
                         headers: {
                             'X-Requested-With': 'XMLHttpRequest',
                             'Accept': 'text/html'
@@ -312,6 +376,9 @@
                             // Replace the entire main content (keeps the sidebar intact)
                             currentMain.innerHTML = newMain.innerHTML;
                             
+                            // Reattach listeners
+                            reattachFilterListeners();
+                            
                             // Reattach pagination handlers for the new content
                             const paginationContainer = currentMain.querySelector('.bg-white.dark\\:bg-gray-800.px-6.py-3.border-t');
                             if (paginationContainer && shouldShowPagination(paginationContainer)) {
@@ -323,13 +390,12 @@
                         window.history.replaceState({}, '', href);
                     })
                     .catch(error => {
-                        console.error('Pagination error:', error);
-                        if (resultsSpan) {
-                            resultsSpan.textContent = 'Error loading results';
+                        if (error.name !== 'AbortError') {
+                            console.error('Pagination error:', error);
+                            if (resultsSpan) {
+                                resultsSpan.textContent = 'Error loading results';
+                            }
                         }
-                    })
-                    .finally(() => {
-                        isFiltering = false;
                     });
                 });
             });
@@ -359,35 +425,14 @@
             }
         }
 
-        // Add event listeners for filtering
-        if (searchInput) {
-            searchInput.addEventListener('input', function() {
-                clearTimeout(searchTimeout);
-                searchTimeout = setTimeout(() => {
-                    applyFilters();
-                }, 500);
-            });
-        }
-        
-        if (typeFilter) typeFilter.addEventListener('change', applyFilters);
-        if (statusFilter) statusFilter.addEventListener('change', applyFilters);
-        if (departmentFilter) departmentFilter.addEventListener('change', applyFilters);
-        if (locationFilter) locationFilter.addEventListener('change', applyFilters);
-        
-        if (floorFilter) {
-            floorFilter.addEventListener('change', function() {
-                updateLocationOptions();
-                applyFilters();
-            });
-        }
+        // Setup initial event listeners
+        reattachFilterListeners();
 
         // Update results count
         updateResultsCount();
     });
 
-    function updateLocationOptions() {
-        const floorFilter = document.getElementById('floor-filter');
-        const locationFilter = document.getElementById('location-filter');
+    function updateLocationOptions(floorFilter, locationFilter) {
         const selectedFloorId = floorFilter?.value || '';
         
         if (!locationFilter) return;

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Assets JSON Filter</title>
+</head>
+<body>
+    <h1>Test Assets JSON Filter</h1>
+    <button onclick="testFetch()">Test Fetch</button>
+    <pre id="result"></pre>
+    
+    <script>
+        async function testFetch() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = 'Loading...';
+            
+            try {
+                const response = await fetch('/AssetsManagement/assets/json-filter?page=1&status=deployed', {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                    }
+                });
+                
+                console.log('Response status:', response.status);
+                console.log('Response ok:', response.ok);
+                
+                if (!response.ok) {
+                    resultDiv.textContent = `Error: HTTP ${response.status}`;
+                    return;
+                }
+                
+                const data = await response.json();
+                resultDiv.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.textContent = `Error: ${error.message}\n${error.stack}`;
+            }
+        }
+        
+        // Auto-test on load
+        window.addEventListener('load', testFetch);
+    </script>
+</body>
+</html>

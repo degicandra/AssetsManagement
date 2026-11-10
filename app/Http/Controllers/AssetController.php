@@ -214,6 +214,84 @@ class AssetController extends Controller
         return redirect()->route('assets.show', $asset)
             ->with('success', 'Asset updated successfully!');
     }
+
+    public function jsonFilter(Request $request)
+    {
+        $query = Asset::with('type', 'department', 'location.floor');
+        
+        // Apply filters
+        if ($request->has('status') && $request->status) {
+            $query->where('status', $request->status);
+        }
+        
+        if ($request->has('department') && $request->department) {
+            $query->where('department_id', $request->department);
+        }
+        
+        if ($request->has('type') && $request->type) {
+            $query->where('type_id', $request->type);
+        }
+        
+        if ($request->has('floor') && $request->floor) {
+            $query->whereHas('location', function($q) {
+                $q->where('floor_id', request('floor'));
+            });
+        }
+        
+        if ($request->has('location') && $request->location) {
+            $query->where('location_id', $request->location);
+        }
+        
+        if ($request->has('search') && $request->search) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('asset_code', 'like', "%{$search}%")
+                  ->orWhere('serial_number', 'like', "%{$search}%")
+                  ->orWhere('model', 'like', "%{$search}%")
+                  ->orWhere('brand', 'like', "%{$search}%");
+            });
+        }
+        
+        // Get page or default to 1
+        $page = $request->get('page', 1);
+        $paginated = $query->latest()->paginate(10, ['*'], 'page', $page);
+        
+        // Format assets data
+        $assetsFormatted = $paginated->items();
+        $formattedAssets = array_map(function($asset) {
+            $statusColorMap = [
+                'ready_to_deploy' => 'Ready to Deploy',
+                'deployed' => 'Deployed',
+                'archive' => 'Archive',
+                'broken' => 'Broken',
+                'service' => 'Service',
+                'request_disposal' => 'Request Disposal',
+                'disposed' => 'Disposed'
+            ];
+
+            return [
+                'id' => $asset->id,
+                'asset_code' => $asset->asset_code,
+                'serial_number' => $asset->serial_number,
+                'type_name' => $asset->type?->name ?? 'Not Set',
+                'brand' => $asset->brand,
+                'model' => $asset->model,
+                'status' => $asset->status,
+                'status_display' => $statusColorMap[$asset->status] ?? ucfirst(str_replace('_', ' ', $asset->status)),
+                'department_name' => $asset->department?->name ?? 'N/A',
+                'floor_name' => $asset->location?->floor?->name ?? 'N/A',
+                'location_name' => $asset->location?->name ?? 'N/A'
+            ];
+        }, $assetsFormatted);
+        
+        return response()->json([
+            'success' => true,
+            'assets_formatted' => $formattedAssets,
+            'current_page' => $paginated->currentPage(),
+            'last_page' => $paginated->lastPage(),
+            'count' => $paginated->total()
+        ]);
+    }
     
     public function destroy(Asset $asset)
     {
